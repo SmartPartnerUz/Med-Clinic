@@ -1,4 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
+    <SolidColorBrush x:Key="BorderColor" Color="#4D4D4D"/>
+    <SolidColorBrush x:Key="color" Color="Black"/>
+
+    <SolidColorBrush x:Key="FirstColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="SecondColor" Color="#F2F2F2"/>
+
+    <SolidColorBrush x:Key="ThreedColor" Color="#FEE7EA"/>
+    <SolidColorBrush x:Key="FourthColor" Color="#FCEDDC"/>
+    <SolidColorBrush x:Key="FifthColor" Color="#D5F3F6"/>
+
+    <SolidColorBrush x:Key="SixthColor" Color="#329DFF"/>
+    <SolidColorBrush x:Key="SeventhColor" Color="#D3EBFF"/>
+
+    <SolidColorBrush x:Key="logocolor" Color="#5088C9"/>
+
+    <SolidColorBrush x:Key="btncolor" Color="#329DFF"/>
+    <SolidColorBrush x:Key="btnMouseEnter" Color="#57AEFF"/>
+    <SolidColorBrush x:Key="btnMouseClick" Color="#2696FF"/>
+
 </ResourceDictionary>
