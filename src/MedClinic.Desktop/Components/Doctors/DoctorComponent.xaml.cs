@@ -18,9 +18,9 @@ namespace MedClinic.Desktop.Components.Doctors
     /// <summary>
     /// Interaction logic for DoctorComponents.xaml
     /// </summary>
-    public partial class DoctorComponents : UserControl
+    public partial class DoctorComponent : UserControl
     {
-        public DoctorComponents()
+        public DoctorComponent()
         {
             InitializeComponent();
         }

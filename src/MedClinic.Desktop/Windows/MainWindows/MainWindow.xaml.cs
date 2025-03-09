@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using MedClinic.Desktop.Pages.Doctors;
+using MedClinic.Desktop.Pages.Patients;
+using MedClinic.Desktop.Pages.Rooms;
+using System.Windows;
 
 namespace MedClinic.Desktop;
 
@@ -24,17 +27,20 @@ public partial class MainWindow : Window
 
     private void rbPatient_Click(object sender, RoutedEventArgs e)
     {
-
+        PatientPage patientPage = new PatientPage();
+        PageNavigator.Content = patientPage;
     }
 
     private void rbDoctors_Click(object sender, RoutedEventArgs e)
     {
-
+        DoctorPage doctorPage = new DoctorPage();
+        PageNavigator.Content = doctorPage;
     }
 
     private void rbRooms_Click(object sender, RoutedEventArgs e)
     {
-
+        RoomPage roomPage = new RoomPage();
+        PageNavigator.Content = roomPage;
     }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)

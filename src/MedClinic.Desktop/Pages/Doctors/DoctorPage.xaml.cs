@@ -1,28 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MedClinic.Desktop.Components.Doctors;
+using MedClinic.Desktop.Windows.Doctors;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace MedClinic.Desktop.Pages.Doctors
+namespace MedClinic.Desktop.Pages.Doctors;
+
+/// <summary>
+/// Interaction logic for DoctorPage.xaml
+/// </summary>
+public partial class DoctorPage : Page
 {
-    /// <summary>
-    /// Interaction logic for DoctorPage.xaml
-    /// </summary>
-    public partial class DoctorPage : Page
+    public DoctorPage()
     {
-        public DoctorPage()
+        InitializeComponent();
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
+
+    private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+
+    }
+
+    private void DoctorCreate_Button_Click(object sender, RoutedEventArgs e)
+    {
+        DoctorCreateWindow doctorCreateWindow = new DoctorCreateWindow();
+        doctorCreateWindow.ShowDialog();
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        for (int i = 0; i < 20; i++)
         {
-            InitializeComponent();
+            DoctorComponent doctorComponent = new DoctorComponent();
+            wrpDoctors.Children.Add(doctorComponent);
         }
     }
 }
