@@ -120,18 +120,18 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border 
-                    x:Name="B"
-                    CornerRadius="5"
-                    Background="{DynamicResource btncolor}"
-                    >
+                        x:Name="B"
+                        CornerRadius="5"
+                        Background="{DynamicResource btncolor}"
+                        >
                         <Label
-                        FontFamily="Jetbrains Mono"
-                        FontWeight="SemiBold"
-                        Foreground="{DynamicResource FirstColor}"
-                        FontSize="{TemplateBinding FontSize}"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Content="{TemplateBinding Content}"/>
+                            FontFamily="Jetbrains Mono"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource FirstColor}"
+                            FontSize="{TemplateBinding FontSize}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Content="{TemplateBinding Content}"/>
 
                     </Border>
                     <ControlTemplate.Triggers>
@@ -177,7 +177,7 @@
         <Setter Property="Height" Value="45"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Margin" Value="0 3 0 3"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -189,20 +189,23 @@
                                 <ColumnDefinition Width="20"/>
                                 <ColumnDefinition Width="180"/>
                             </Grid.ColumnDefinitions>
-                            <Border x:Name="Indicator" Grid.Column="0"
+                            <Border 
+                                x:Name="Indicator" 
+                                Grid.Column="0"
                                 Height="45"
                                 CornerRadius="5"
                                 Visibility="Collapsed"
                                 Background="{DynamicResource SixthColor}"/>
                             <Border 
-                            Grid.Column="1"
-                            Background="Transparent">
+                                Grid.Column="1"
+                                Background="Transparent">
+                                
                             </Border>
 
                             <Border
-                            Grid.Column="2"
-                            CornerRadius="5"
-                            x:Name="IconPath">
+                                Grid.Column="2"
+                                CornerRadius="5"
+                                x:Name="IconPath">
                                 <Grid >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
@@ -210,26 +213,25 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Path 
-                                    Grid.Column="0"
-                                    x:Name="Icon" 
-                                    Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
-                                    Fill="{DynamicResource BorderColor}"
-                                    Height="20"
-                                    Stretch="Uniform"/>
+                                        Grid.Column="0"
+                                        x:Name="Icon" 
+                                        Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}"
+                                        Fill="Black"
+                                        Height="20"
+                                        Stretch="Uniform"/>
 
                                     <Label 
-                                   Grid.Column="1"
-                                   x:Name="Label"
-                                   FontSize="{TemplateBinding FontSize}"
-                                   Content="{TemplateBinding Content}"
-                                   FontFamily="Arial"
-                                   Foreground="{DynamicResource BorderColor}"
-                                   FontWeight="DemiBold"
-                                   VerticalAlignment="Center"/>
+                                        Grid.Column="1"
+                                        x:Name="Label"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Content="{TemplateBinding Content}"
+                                        FontFamily="Arial"
+                                        Foreground="Black"
+                                        FontWeight="DemiBold"
+                                        VerticalAlignment="Center"/>
                                 </Grid>
+                                
                             </Border>
-
-
 
                         </Grid>
                     </Border>
