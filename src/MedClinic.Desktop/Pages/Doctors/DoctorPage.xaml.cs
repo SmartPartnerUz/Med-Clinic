@@ -40,4 +40,9 @@ public partial class DoctorPage : Page
             wrpDoctors.Children.Add(doctorComponent);
         }
     }
+
+    private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+
+    }
 }
