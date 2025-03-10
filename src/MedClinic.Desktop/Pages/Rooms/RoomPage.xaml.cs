@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace MedClinic.Desktop.Pages.Rooms
+namespace MedClinic.Desktop.Pages.Rooms;
+
+/// <summary>
+/// Interaction logic for RoomPage.xaml
+/// </summary>
+public partial class RoomPage : Page
 {
-    /// <summary>
-    /// Interaction logic for RoomPage.xaml
-    /// </summary>
-    public partial class RoomPage : Page
+    public RoomPage()
     {
-        public RoomPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+
+    }
+
+    private void RoomCreate_Button_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+
+    }
+
+    private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
+    {
+
     }
 }

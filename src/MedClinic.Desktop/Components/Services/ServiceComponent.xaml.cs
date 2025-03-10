@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedClinic.Desktop.Pages.Patients
+namespace MedClinic.Desktop.Components.Services
 {
     /// <summary>
-    /// Interaction logic for PatientPage.xaml
+    /// Interaction logic for ServiceComponent.xaml
     /// </summary>
-    public partial class PatientPage : Page
+    public partial class ServiceComponent : UserControl
     {
-        public PatientPage()
+        public ServiceComponent()
         {
             InitializeComponent();
-        }
-
-        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void PatientCreate_Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
