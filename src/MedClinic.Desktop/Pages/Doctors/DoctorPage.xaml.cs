@@ -34,11 +34,11 @@ public partial class DoctorPage : Page
 
     private void Page_Loaded(object sender, RoutedEventArgs e)
     {
-        for (int i = 0; i < 20; i++)
-        {
-            DoctorComponent doctorComponent = new DoctorComponent();
-            wrpDoctors.Children.Add(doctorComponent);
-        }
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    DoctorComponent doctorComponent = new DoctorComponent();
+        //    wrpDoctors.Children.Add(doctorComponent);
+        //}
     }
 
     private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)

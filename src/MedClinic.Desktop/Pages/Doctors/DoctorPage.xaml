@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MedClinic.Desktop.Pages.Doctors"
+      xmlns:local="clr-namespace:MedClinic.Desktop.Components.Loader"
       mc:Ignorable="d" 
       Title="DoctorPage"
       Loaded="Page_Loaded">
@@ -53,24 +53,34 @@
                 Style="{DynamicResource LoginButton}"/>
 
         </Grid>
-        <ScrollViewer 
-            x:Name="scrolViver"
-            Visibility="Collapsed"
+        <Grid
             Grid.Row="1">
+
+            <local:Loader
+                x:Name="Loader"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+
+            <ScrollViewer 
+                x:Name="scrolViver"
+                Visibility="Collapsed"
+                >
             
-            <WrapPanel 
-                x:Name="wrpDoctors">
-            </WrapPanel>
+                <WrapPanel 
+                    x:Name="wrpDoctors">
+                </WrapPanel>
             
-        </ScrollViewer>
-        
-        <Label 
-            x:Name="emptyData"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Visibility="Collapsed"
-            Content="Xozircha malumotlar yo'q"
-            FontSize="18">
-        </Label>
+            </ScrollViewer>
+
+            <Label 
+                x:Name="emptyData"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Visibility="Collapsed"
+                Content="Xozircha malumotlar yo'q"
+                FontSize="18">
+            </Label>
+            
+        </Grid>
     </Grid>
 </Page>
