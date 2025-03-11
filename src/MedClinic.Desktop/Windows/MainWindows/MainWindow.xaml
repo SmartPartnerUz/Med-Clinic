@@ -75,8 +75,15 @@
                         Content="Xonalar"
                         Click="rbRooms_Click"
                         Style="{DynamicResource MenuButton}" 
-                        Tag="{DynamicResource uchrashuv}"/>
-                   
+                        Tag="{DynamicResource room}"/>
+
+                    <RadioButton 
+                        x:Name="rbServices"
+                        Content="Xizmatlar"
+                        Click="rbServices_Click"
+                        Style="{DynamicResource MenuButton}" 
+                        Tag="{DynamicResource service}"/>
+
                 </StackPanel>
             </Grid>
             <Border

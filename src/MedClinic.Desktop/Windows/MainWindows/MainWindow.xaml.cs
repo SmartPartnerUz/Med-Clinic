@@ -15,6 +15,11 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
+    private void Window_Loaded(object sender, RoutedEventArgs e)
+    {
+
+    }
+
     private void btnClose_Click(object sender, RoutedEventArgs e)
     {
         Application.Current.Shutdown();
@@ -43,7 +48,7 @@ public partial class MainWindow : Window
         PageNavigator.Content = roomPage;
     }
 
-    private void Window_Loaded(object sender, RoutedEventArgs e)
+    private void rbServices_Click(object sender, RoutedEventArgs e)
     {
 
     }
@@ -52,4 +57,5 @@ public partial class MainWindow : Window
     {
 
     }
+
 }
