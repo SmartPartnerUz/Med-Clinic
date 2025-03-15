@@ -8,5 +8,6 @@ public class DoctorRoom : BaseEntity
 {
     [Column("name")]
     public int Number { get; set; }
-    public Doctor? Doctor { get; set; }
+
+    public ICollection<Doctor> Doctors { get; set; } = new List<Doctor>();
 }
