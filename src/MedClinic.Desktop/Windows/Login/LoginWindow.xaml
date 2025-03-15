@@ -99,7 +99,6 @@
                                 <TextBox
                                     x:Name="textboxPhone"
                                     MaxLength="9"
-                                    TextChanged="textboxPhone_TextChanged"
                                     Grid.Column="1"
                                     FontSize="18"
                                     Text="917727005"
@@ -107,7 +106,8 @@
                                     VerticalAlignment="Center"
                                     FontWeight="SemiBold"
                                     Foreground="Black"
-                                    Background="Transparent"/>
+                                    Background="Transparent"
+                                    PreviewTextInput="textboxPhone_PreviewTextInput"/>
 
                             </Grid>
 

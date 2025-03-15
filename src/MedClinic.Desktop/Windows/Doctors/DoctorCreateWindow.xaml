@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="DoctorCreateWindow"
         WindowStyle="None"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
         Loaded="Window_Loaded">
     <Border
-        Height="500"
+        Height="600"
         Width="600"
         CornerRadius="10"
         Background="White">
@@ -35,11 +36,12 @@
                 Click="Close_Button_Click"/>
 
             <Grid
+                Margin="30 10 0 0"
                 Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="220"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="90"/>
                 </Grid.RowDefinitions>
 
                 <Grid>
@@ -96,21 +98,23 @@
                             Content="Telefon raqami :"/>
                         <TextBox
                             x:Name="txt_PhoneNuber"
+                            PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Phone_Number_TextBox_Style}"/>
 
                     </StackPanel>
 
                 </Grid>
 
-                <Grid 
-                    Grid.Row="2">
+                <Grid
+                    Margin="0 20 0 0"
+                    Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel
-                        Margin="30 20 0 0"
+                        Margin="30 0 0 0"
                         Grid.Column="0">
 
                         <Label
@@ -120,98 +124,99 @@
                         
                         <TextBox
                             x:Name="txt_Salary"
+                            PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Update_TextBox_Style}"/>
                         
                         <Label
                             Margin="0 5 0 0"
                             FontSize="15"
                             Style="{DynamicResource TitleLabel}"
-                            Content="Jinsi :"/>
-                        
-                        <StackPanel
-                            Margin="0 10 0 0"
-                            Orientation="Horizontal">
-                            
-                            <RadioButton
-                    x:Name="rbErkak"
-                    Click="rbErkak_Click"
-                    Margin="0 5"
-                    FontSize="15"
-                    FontWeight="SemiBold"
-                    Foreground="{DynamicResource BorderColor}"
-                    Content="Erkak"/>
-                            <RadioButton
-                    x:Name="rbAyol"
-                    Click="rbErkak_Click"
-                    Margin="50 5"
-                    FontSize="15"
-                    FontWeight="SemiBold"
-                    Foreground="{DynamicResource BorderColor}"
-                    Content="Ayol"/>
+                            Content="Xonasi :"/>
 
-                        </StackPanel>
+                        <ComboBox
+                            x:Name="doctor_Room"
+                            IsReadOnly="True"
+                            Margin="5 5 5 10"
+                            Width="200"
+                            HorizontalAlignment="Left">
+
+                            <ComboBoxItem
+                                Content="Shifokor"/>
+                            <ComboBoxItem
+                                Content="Hamshira"/>
+
+                        </ComboBox>
+
                         <Label
-                Margin="0 5 0 0"
-                FontSize="15"
-                Style="{DynamicResource TitleLabel}"
-                Content="Holati :"/>
-                        <TextBox
-                x:Name="txt_Status"
-                Style="{DynamicResource Update_TextBox_Style}"/>
+                            Margin="0 5 0 0"
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Xizmat turi :"/>
+                        <ComboBox
+                            IsReadOnly="True"
+                            Name="doctor_Service"
+                            Margin="5 5 5 10"
+                            Width="200"
+                            HorizontalAlignment="Left">
+
+                            <ComboBoxItem
+                                Content="Shifokor"/>
+                            <ComboBoxItem
+                                Content="Hamshira"/>
+
+                        </ComboBox>
 
 
                     </StackPanel>
 
                     <StackPanel
                         Grid.Column="1"
-                        Margin="10 20 0 0">
+                        Margin="10 0 0 0">
 
                         <Label
                             FontSize="15"
                             Style="{DynamicResource TitleLabel}"
-                            Content="Olinadigan foiz :"/>
+                            Content="Oladigan foizi :"/>
+                        
                         <TextBox
                             x:Name="txt_Persentage"
+                            PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 
                         <Label
                             Margin="0 5 0 0"
-                            Content="Yo'nalishi :"
+                            Content="Ro'li :"
                             FontSize="15"
                             Style="{DynamicResource TitleLabel}"/>
                         <ComboBox
                             IsReadOnly="True"
-                            Name="teacher_Spacialties"
+                            Name="doctor_Role"
                             Margin="5 5 5 10"
                             Width="200"
                             HorizontalAlignment="Left">
 
                             <ComboBoxItem
-                                Content="C# .NET"/>
+                                Content="Admin"/>
                             <ComboBoxItem
-                                Content="Phyton"/>
-                            <ComboBoxItem
-                                Content="Java"/>
+                                Content="Super admin"/>
 
                         </ComboBox>
 
                         <Label
-                Content="Mavjud kurslari :"
-                FontSize="15"
-                Style="{DynamicResource TitleLabel}"/>
+                            Content="Pozitsiyasi :"
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"/>
                         <ComboBox
-                IsReadOnly="True"
-                Name="teacher_Courses"
-                Margin="5 5 5 10"
-                Width="200"
-                HorizontalAlignment="Left">
+                            IsReadOnly="True"
+                            Name="doctor_Position"
+                            Margin="5 5 5 10"
+                            Width="200"
+                            HorizontalAlignment="Left">
 
                             <ComboBoxItem
-                    Content="Bootcamp .NET N8"/>
+                                Content="Shifokor"/>
                             <ComboBoxItem
-                    Content="Bootcamp .NET N7"/>
-                            <ComboBoxItem
-                    Content="Bootcamp .NET N6"/>
+                                Content="Hamshira"/>
 
                         </ComboBox>
 
@@ -219,9 +224,28 @@
 
                 </Grid>
 
+                <Button
+                    Grid.Row="2"
+                    x:Name="Create_Button"
+                    FontSize="18"
+                    Content="Yaratish"
+                    Width="200"
+                    Style="{StaticResource LoginButton}"
+                    Click="Create_Button_Click"/>
+
             </Grid>
 
-        </Grid>                                                    
-        
+        </Grid>
+
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="5"
+                Opacity="1"
+                ShadowDepth="-40"
+                Color="Gray">
+
+            </DropShadowEffect>
+        </Border.Effect>
+
     </Border>
 </Window>

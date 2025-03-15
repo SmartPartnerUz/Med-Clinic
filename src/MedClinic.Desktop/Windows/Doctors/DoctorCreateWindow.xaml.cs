@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Interop;
 using static MedClinic.Desktop.Windows.BlurWindow.BlurEffect;
@@ -62,5 +63,15 @@ public partial class DoctorCreateWindow : Window
     private void doctor_Image_Border_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
     {
 
+    }
+
+    private void Create_Button_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void txt_PhoneNuber_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+    {
+        e.Handled = !Regex.IsMatch(e.Text, "^[0-9]+$");
     }
 }
