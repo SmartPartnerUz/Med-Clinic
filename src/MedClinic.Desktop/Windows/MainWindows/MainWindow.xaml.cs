@@ -1,4 +1,5 @@
-﻿using MedClinic.Desktop.Pages.Doctors;
+﻿using MedClinic.Desktop.Pages.Dashboard;
+using MedClinic.Desktop.Pages.Doctors;
 using MedClinic.Desktop.Pages.Patients;
 using MedClinic.Desktop.Pages.Rooms;
 using System.Windows;
@@ -27,7 +28,8 @@ public partial class MainWindow : Window
 
     private void rbDashboard_Click(object sender, RoutedEventArgs e)
     {
-
+        DashboardPage dashboardPage = new DashboardPage();
+        PageNavigator.Content = dashboardPage;
     }
 
     private void rbPatient_Click(object sender, RoutedEventArgs e)

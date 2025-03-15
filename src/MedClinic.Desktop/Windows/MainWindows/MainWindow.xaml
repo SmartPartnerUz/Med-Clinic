@@ -45,23 +45,17 @@
             <Grid
                 Grid.Column="0"
                 Background="{DynamicResource FirstColor}">
+                
                 <StackPanel
                     Margin="5 50 30 0"
                     Orientation="Vertical">
 
-                    <RadioButton 
+                    <!--<RadioButton 
                         x:Name="rbDashboard"
                         Content="Dashboard"
                         Click="rbDashboard_Click"
                         Style="{DynamicResource MenuButton}" 
-                        Tag="{DynamicResource dashboard}"/>
-                    
-                    <RadioButton 
-                        x:Name="rbPatient"
-                        Content="Bemorlar"
-                        Click="rbPatient_Click"
-                        Style="{DynamicResource MenuButton}" 
-                        Tag="{DynamicResource bemor}"/>
+                        Tag="{DynamicResource dashboard}"/>-->
                     
                     <RadioButton 
                         x:Name="rbDoctors"
@@ -69,6 +63,13 @@
                         Click="rbDoctors_Click"
                         Style="{DynamicResource MenuButton}" 
                         Tag="{DynamicResource shifokor}"/>
+                    
+                    <RadioButton 
+                        x:Name="rbPatient"
+                        Content="Bemorlar"
+                        Click="rbPatient_Click"
+                        Style="{DynamicResource MenuButton}" 
+                        Tag="{DynamicResource bemor}"/>
                     
                     <RadioButton 
                         x:Name="rbRooms"
