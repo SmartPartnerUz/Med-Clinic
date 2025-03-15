@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Images\login.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\Images\loader2.gif" />
   </ItemGroup>
 
