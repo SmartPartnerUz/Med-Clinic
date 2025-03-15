@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -17,11 +18,6 @@ public partial class LoginWindow : Window
     private void btnClose_Click(object sender, RoutedEventArgs e)
     {
         Application.Current.Shutdown();
-    }
-
-    private void textboxPhone_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-    {
-
     }
 
     private void Label_MouseEnter(object sender, MouseEventArgs e)
@@ -82,5 +78,10 @@ public partial class LoginWindow : Window
     private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
 
+    }
+
+    private void textboxPhone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+        e.Handled = !Regex.IsMatch(e.Text, "^[0-9]+$");
     }
 }
