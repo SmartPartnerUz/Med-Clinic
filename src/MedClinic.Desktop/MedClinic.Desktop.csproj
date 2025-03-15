@@ -20,4 +20,8 @@
     <Resource Include="Assets\Images\loader2.gif" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Security\" />
+  </ItemGroup>
+
 </Project>

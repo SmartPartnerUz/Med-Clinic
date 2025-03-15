@@ -5,8 +5,223 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedClinic.Desktop.Windows.Doctors"
         mc:Ignorable="d"
-        Title="DoctorCreateWindow" Height="450" Width="800">
-    <Grid>
+        Title="DoctorCreateWindow"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded">
+    <Border
+        Height="500"
+        Width="600"
+        CornerRadius="10"
+        Background="White">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                FontSize="18"
+                Text="Shifokor qo'shish"
+                Style="{StaticResource TextBlockStyle}"/>
+
+            <Button
+                Name="Close_Button"
+                Grid.Row="0"
+                Style="{StaticResource ClosedButton}"
+                Click="Close_Button_Click"/>
+
+            <Grid
+                Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border
+                        x:Name="doctor_Image_Border"
+                        BorderBrush="{DynamicResource BorderColor}"
+                        BorderThickness="1"
+                        Grid.Row="0"
+                        Width="220"
+                        CornerRadius="10"
+                        Height="210"
+                        MouseDown="doctor_Image_Border_MouseDown"
+                        MouseEnter="doctor_Image_Border_MouseEnter"
+                        MouseLeave="doctor_Image_Border_MouseLeave">
+                        
+                        <Border.Background>
+                            <ImageBrush 
+                                x:Name="doctor_Picture"
+                                Stretch="Fill"/>
+                        </Border.Background>
+
+                    </Border>
+
+                    <StackPanel
+                        Margin="10 10 0 0"
+                        Grid.Column="1">
+
+                        <Label
+                            FontSize="14"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Ismi :"/>
+                        <TextBox
+                            x:Name="txt_Firstname"
+                            Style="{DynamicResource Update_TextBox_Style}"/>
+
+                        <Label
+                            Margin="0 5 0 0"
+                            FontSize="14"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Fameliyasi :"/>
+                        <TextBox
+                            x:Name="txt_Lastname"
+                            Style="{DynamicResource Update_TextBox_Style}"/>
+
+                        <Label
+                            Margin="0 5 0 0"
+                            FontSize="14"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Telefon raqami :"/>
+                        <TextBox
+                            x:Name="txt_PhoneNuber"
+                            Style="{DynamicResource Phone_Number_TextBox_Style}"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+                <Grid 
+                    Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel
+                        Margin="30 20 0 0"
+                        Grid.Column="0">
+
+                        <Label
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Maoshi :"/>
+                        
+                        <TextBox
+                            x:Name="txt_Salary"
+                            Style="{DynamicResource Update_TextBox_Style}"/>
+                        
+                        <Label
+                            Margin="0 5 0 0"
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Jinsi :"/>
+                        
+                        <StackPanel
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal">
+                            
+                            <RadioButton
+                    x:Name="rbErkak"
+                    Click="rbErkak_Click"
+                    Margin="0 5"
+                    FontSize="15"
+                    FontWeight="SemiBold"
+                    Foreground="{DynamicResource BorderColor}"
+                    Content="Erkak"/>
+                            <RadioButton
+                    x:Name="rbAyol"
+                    Click="rbErkak_Click"
+                    Margin="50 5"
+                    FontSize="15"
+                    FontWeight="SemiBold"
+                    Foreground="{DynamicResource BorderColor}"
+                    Content="Ayol"/>
+
+                        </StackPanel>
+                        <Label
+                Margin="0 5 0 0"
+                FontSize="15"
+                Style="{DynamicResource TitleLabel}"
+                Content="Holati :"/>
+                        <TextBox
+                x:Name="txt_Status"
+                Style="{DynamicResource Update_TextBox_Style}"/>
+
+
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Margin="10 20 0 0">
+
+                        <Label
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"
+                            Content="Olinadigan foiz :"/>
+                        <TextBox
+                            x:Name="txt_Persentage"
+                            Style="{DynamicResource Update_TextBox_Style}"/>
+
+                        <Label
+                            Margin="0 5 0 0"
+                            Content="Yo'nalishi :"
+                            FontSize="15"
+                            Style="{DynamicResource TitleLabel}"/>
+                        <ComboBox
+                            IsReadOnly="True"
+                            Name="teacher_Spacialties"
+                            Margin="5 5 5 10"
+                            Width="200"
+                            HorizontalAlignment="Left">
+
+                            <ComboBoxItem
+                                Content="C# .NET"/>
+                            <ComboBoxItem
+                                Content="Phyton"/>
+                            <ComboBoxItem
+                                Content="Java"/>
+
+                        </ComboBox>
+
+                        <Label
+                Content="Mavjud kurslari :"
+                FontSize="15"
+                Style="{DynamicResource TitleLabel}"/>
+                        <ComboBox
+                IsReadOnly="True"
+                Name="teacher_Courses"
+                Margin="5 5 5 10"
+                Width="200"
+                HorizontalAlignment="Left">
+
+                            <ComboBoxItem
+                    Content="Bootcamp .NET N8"/>
+                            <ComboBoxItem
+                    Content="Bootcamp .NET N7"/>
+                            <ComboBoxItem
+                    Content="Bootcamp .NET N6"/>
+
+                        </ComboBox>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>                                                    
         
-    </Grid>
+    </Border>
 </Window>
