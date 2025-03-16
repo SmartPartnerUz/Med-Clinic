@@ -58,12 +58,12 @@
 
             <local:Loader
                 x:Name="Loader"
+                Visibility="Hidden"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>
 
             <ScrollViewer 
                 x:Name="scrolViver"
-                Visibility="Collapsed"
                 >
             
                 <WrapPanel 
