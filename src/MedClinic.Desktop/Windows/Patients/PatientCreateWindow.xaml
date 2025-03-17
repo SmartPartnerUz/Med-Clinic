@@ -5,8 +5,155 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedClinic.Desktop.Windows.Patients"
         mc:Ignorable="d"
-        Title="PatientCreateWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Loaded="Window_Loaded"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border
+        Width="500"
+        Height="500"
+        CornerRadius="10"
+        Background="{StaticResource FirstColor}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="90"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Text="Bemor qo'shish"
+                Style="{StaticResource TextBlockStyle}"/>
+
+            <Button
+                x:Name="Close_Button"
+                Click="Close_Button_Click"
+                Style="{StaticResource ClosedButton}"/>
+
+            <Grid
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+                    Grid.Column="0"
+                    Margin="23">
+
+                    <Label
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Ismi :"
+                        HorizontalAlignment="Right"/>
+
+                    <Label
+                        Margin="0 7"
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Fameliyasi :"
+                        HorizontalAlignment="Right"/>
+
+                    <Label
+                        Margin="0 7"
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Telefon raqami :"
+                        HorizontalAlignment="Right"/>
+                    
+                    <Label
+                        Margin="0 7"
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Tug'ilgan sanasi :"
+                        HorizontalAlignment="Right"/>
+                    
+                    <Label
+                        Margin="0 10"
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Xizmat turi :"
+                        HorizontalAlignment="Right"/>
+
+                    <Label
+                        Margin="0 10"
+                        Style="{DynamicResource TitleLabel}"
+                        Content="Shifokori :"
+                        HorizontalAlignment="Right"/>
+
+                </StackPanel>
+
+                <StackPanel
+                    Margin="0 20 30 0"
+                    Grid.Column="1">
+
+                    <TextBox
+                        Text="Shodiyor"
+                        x:Name="txt_Firstname"
+                        Style="{DynamicResource Update_TextBox_Style}"/>
+
+                    <TextBox
+                        Margin="0 5"
+                        Text="Erqo'ziyev"
+                        x:Name="txt_Lastname"
+                        Style="{DynamicResource Update_TextBox_Style}"/>
+
+                    <TextBox
+                        x:Name="txt_PhoneNuber"
+                        PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
+                        Style="{DynamicResource Phone_Number_TextBox_Style}"/>
+
+                    <DatePicker
+                        Margin="5 15 32 0"
+                        x:Name="toDateTime"
+                        Style="{DynamicResource FormDatePicker}"
+                        SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+
+                    <ComboBox
+                        x:Name="service_type"
+                        IsReadOnly="True"
+                        Margin="5 20 0 0"
+                        Width="195"
+                        MaxDropDownHeight="100"
+                        HorizontalAlignment="Left">
+
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Margin" Value="0 0 15 0"/>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+
+                    </ComboBox>
+
+                    <ComboBox
+                        x:Name="doctor_Room"
+                        IsReadOnly="True"
+                        Margin="5 30 5 10"
+                        Width="195"
+                        MaxDropDownHeight="100"
+                        HorizontalAlignment="Left">
+
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+                                <Setter Property="Margin" Value="0 0 15 0"/>
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+
+                    </ComboBox>
+
+
+                </StackPanel>
+
+            </Grid>
+
+            <Button
+                Grid.Row="2"
+                Name="Save_Button"
+                Width="200"
+                Content="Saqlash"
+                FontSize="20"
+                Click="Save_Button_Click"
+                Style="{StaticResource LoginButton}"/>
+
+        </Grid>
+
+    </Border>
 </Window>

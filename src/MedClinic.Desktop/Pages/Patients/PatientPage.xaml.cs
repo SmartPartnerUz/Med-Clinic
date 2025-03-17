@@ -1,38 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MedClinic.Desktop.Windows.Patients;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace MedClinic.Desktop.Pages.Patients
+namespace MedClinic.Desktop.Pages.Patients;
+
+/// <summary>
+/// Interaction logic for PatientPage.xaml
+/// </summary>
+public partial class PatientPage : Page
 {
-    /// <summary>
-    /// Interaction logic for PatientPage.xaml
-    /// </summary>
-    public partial class PatientPage : Page
+    public PatientPage()
     {
-        public PatientPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
+    private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+    {
 
-        }
+    }
 
-        private void PatientCreate_Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    private void PatientCreate_Button_Click(object sender, RoutedEventArgs e)
+    {
+        PatientCreateWindow patientCreateWindow = new PatientCreateWindow();
+        patientCreateWindow.ShowDialog();
     }
 }

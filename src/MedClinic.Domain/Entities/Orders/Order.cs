@@ -1,10 +1,9 @@
-﻿using MedClinic.Domain.Entities.Doctors;
+﻿using MedClinic.Domain.Entities.DoctorProfits;
+using MedClinic.Domain.Entities.Doctors;
 using MedClinic.Domain.Entities.HospitalServices;
 using MedClinic.Domain.Entities.Patients;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using MedClinic.Domain.Entities.DoctorProfits;
 using MedClinic.Domain.Entities.Rooms;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedClinic.Domain.Entities.Orders;
 
@@ -20,7 +19,7 @@ public class Order : BaseEntity
     [Column("room_id")]
     public int RoomId { get; set; }
 
-    [ForeignKey("RoomId")]
+    [ForeignKey("RoomId")]  
     public Room Room { get; set; } = null!;
 
     [Column("doctor_id")]
