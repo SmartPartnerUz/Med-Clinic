@@ -25,7 +25,6 @@
             </Grid.RowDefinitions>
 
             <TextBlock
-                FontSize="18"
                 Text="Shifokor qo'shish"
                 Style="{StaticResource TextBlockStyle}"/>
 
@@ -78,6 +77,7 @@
                             FontSize="14"
                             Style="{DynamicResource TitleLabel}"
                             Content="Ismi :"/>
+                        
                         <TextBox
                             x:Name="txt_Firstname"
                             Style="{DynamicResource Update_TextBox_Style}"/>
@@ -87,6 +87,7 @@
                             FontSize="14"
                             Style="{DynamicResource TitleLabel}"
                             Content="Fameliyasi :"/>
+                        
                         <TextBox
                             x:Name="txt_Lastname"
                             Style="{DynamicResource Update_TextBox_Style}"/>
@@ -96,6 +97,7 @@
                             FontSize="14"
                             Style="{DynamicResource TitleLabel}"
                             Content="Telefon raqami :"/>
+                        
                         <TextBox
                             x:Name="txt_PhoneNuber"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"

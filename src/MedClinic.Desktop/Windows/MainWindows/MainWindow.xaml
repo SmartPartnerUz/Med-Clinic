@@ -17,7 +17,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <Border 
             Grid.Row="0"
@@ -45,7 +44,7 @@
             <Grid
                 Grid.Column="0"
                 Background="{DynamicResource FirstColor}">
-                
+
                 <StackPanel
                     Margin="5 50 30 0"
                     Orientation="Vertical">
@@ -56,21 +55,21 @@
                         Click="rbDashboard_Click"
                         Style="{DynamicResource MenuButton}" 
                         Tag="{DynamicResource dashboard}"/>-->
-                    
+
                     <RadioButton 
                         x:Name="rbDoctors"
                         Content="Shifokorlar"
                         Click="rbDoctors_Click"
                         Style="{DynamicResource MenuButton}" 
                         Tag="{DynamicResource shifokor}"/>
-                    
+
                     <RadioButton 
                         x:Name="rbPatient"
                         Content="Bemorlar"
                         Click="rbPatient_Click"
                         Style="{DynamicResource MenuButton}" 
                         Tag="{DynamicResource bemor}"/>
-                    
+
                     <RadioButton 
                         x:Name="rbRooms"
                         Content="Xonalar"
@@ -89,39 +88,11 @@
             </Grid>
             <Border
                 Grid.Column="1"
-                BorderThickness="0 0 4 0"
-                BorderBrush="{DynamicResource FirstColor}"
+                Margin="0 0 0 10"
                 Background="{DynamicResource SecondColor}">
                 <Frame x:Name="PageNavigator"
                        NavigationUIVisibility="Hidden"/>
             </Border>
         </Grid>
-        <Border
-            Grid.Row="2"
-            CornerRadius="0 0 15 15"
-            Background="{DynamicResource FirstColor}">
-            <Grid
-                >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Border
-                    Name="Logout_Border"
-                    Grid.Column="0"
-                    MouseDown="Logout_Border_MouseDown"
-                    Background="{DynamicResource FirstColor}">
-                    <Path 
-                        x:Name="Logout" 
-                        Data="{DynamicResource chiqish }"
-                        Fill="{DynamicResource BorderColor}"
-                        Height="30"
-                        Stretch="Uniform"/>
-                </Border>
-
-                
-            </Grid>
-        </Border>
     </Grid>
 </Window>
