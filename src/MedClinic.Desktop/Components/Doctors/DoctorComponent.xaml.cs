@@ -34,7 +34,7 @@ public partial class DoctorComponent : UserControl
 
     }
 
-    private void btnManege_Click(object sender, System.Windows.RoutedEventArgs e)
+    private void updatebtn_Click(object sender, System.Windows.RoutedEventArgs e)
     {
 
     }
