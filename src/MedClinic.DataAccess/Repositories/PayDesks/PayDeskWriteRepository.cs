@@ -4,9 +4,9 @@ using MedClinic.Domain.Entities.PayDesks;
 
 namespace MedClinic.DataAccess.Repositories;
 
-public class PayDeskWrietRepository : WriteRepository<PayDesk>, IPayDeskWrietRepository
+public class PayDeskWriteRepository : WriteRepository<PayDesk>, IPayDeskWriteRepository
 {
-    public PayDeskWrietRepository(AppDbContext context) : base(context)
+    public PayDeskWriteRepository(AppDbContext context) : base(context)
     {
     }
 }

@@ -2,5 +2,5 @@
 
 namespace MedClinic.DataAccess.Interfaces;
 
-public interface IPayDeskWrietRepository : IWriteRepository<PayDesk>
+public interface IPayDeskWriteRepository : IWriteRepository<PayDesk>
 { }
