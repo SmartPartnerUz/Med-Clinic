@@ -21,22 +21,26 @@ public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     { }
+    public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Position> Positions { get; set; }
+    public DbSet<DoctorRoom> DoctorRooms { get; set; }
+    public DbSet<Doctor> Doctors { get; set; }
+    public DbSet<HospitalService> HospitalServices { get; set; }
+    public DbSet<LaboratoryService> LaboratoryServices { get; set; }
+    public DbSet<FirstViewOrder> FirstViewOrders { get; set; }
+    public DbSet<PayDesk> PayDesks { get; set; }
+    public DbSet<Patient> Patients { get; set; }
+    public DbSet<DoctorProfit> DoctorProfits { get; set; }
+    public DbSet<Status> Status { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<Bed> Beds { get; set; }
 
-    DbSet<User> Users { get; set; }
-    DbSet<Role> Roles { get; set; }
-    DbSet<Position> Positions { get; set; }
-    DbSet<DoctorRoom> DoctorRooms { get; set; }
-    DbSet<Doctor> Doctors { get; set; }
-    DbSet<HospitalService> HospitalServices { get; set; }
-    DbSet<LaboratoryService> LaboratoryServices { get; set; }
-    DbSet<FirstViewOrder> FirstViewOrders { get; set; }
-    DbSet<PayDesk> PayDesks { get; set; }
-    DbSet<Patient> Patients { get; set; }
-    DbSet<DoctorProfit> DoctorProfits { get; set; }
-    DbSet<Status> Status { get; set; }
-    DbSet<Order> Orders { get; set; }
-    DbSet<Room> Rooms { get; set; }
-    DbSet<Bed> Beds { get; set; }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    optionsBuilder.UseNpgsql("Host=localhost; Database=smart-clinic-offline; User ID=postgres; Port=5432; Password=1234;");
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -180,6 +184,11 @@ public class AppDbContext : DbContext
                 .WithOne(o => o.Patient)
                 .HasForeignKey(op => op.PatientId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasMany(p => p.FirstViewsOrders)
+                  .WithOne(o => o.Patient)
+                  .HasForeignKey(op => op.PatientId)
+                  .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<DoctorProfit>(entity =>

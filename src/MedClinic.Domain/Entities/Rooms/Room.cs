@@ -12,7 +12,7 @@ public class Room : BaseEntity
     public int Number { get; set; }
 
     [Column("status_id")]
-    public int StatusId { get; set; }
+    public Guid StatusId { get; set; }
 
     [ForeignKey("StatusId")]
     public Status Status { get; set; } = null!;

@@ -11,25 +11,25 @@ namespace MedClinic.Domain.Entities.Orders;
 public class Order : BaseEntity
 {
     [Column("patient_id")]
-    public int PatientId { get; set; }
+    public Guid PatientId { get; set; }
 
     [ForeignKey("PatientId")]
     public Patient Patient { get; set; } = null!;
 
     [Column("room_id")]
-    public int RoomId { get; set; }
+    public Guid RoomId { get; set; }
 
     [ForeignKey("RoomId")]  
     public Room Room { get; set; } = null!;
 
     [Column("doctor_id")]
-    public int DoctorId { get; set; }
+    public Guid DoctorId { get; set; }
 
     [ForeignKey("DoctorId")]
     public Doctor Doctor { get; set; } = null!;
 
     [Column("hospital_service_id")]
-    public int HospitalServiceId { get; set; }
+    public Guid HospitalServiceId { get; set; }
 
     [ForeignKey("HospitalServiceId")]
     public HospitalService HospitalService { get; set; } = null!;
