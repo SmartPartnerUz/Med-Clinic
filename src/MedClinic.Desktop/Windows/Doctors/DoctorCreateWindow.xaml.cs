@@ -22,7 +22,13 @@ public partial class DoctorCreateWindow : Window
     {
         var windowHelper = new WindowInteropHelper(this);
 
-        var accent = new AccentPolicy();
+        var accent = new AccentPolicy
+        {
+            AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND,
+            AccentFlags = 2,
+            GradientColor = unchecked((int)0x80000000),
+            AnimationId = 0
+        };
         accent.AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND;
 
         var accentStructSize = Marshal.SizeOf(accent);
