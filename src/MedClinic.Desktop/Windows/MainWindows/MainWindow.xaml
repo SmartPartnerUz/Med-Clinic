@@ -46,7 +46,7 @@
                 Background="{DynamicResource FirstColor}">
 
                 <StackPanel
-                    Margin="5 50 30 0"
+                    Margin="5 100 30 0"
                     Orientation="Vertical">
 
                     <!--<RadioButton 
