@@ -1,4 +1,5 @@
-﻿using MedClinic.Desktop.Windows.Patients;
+﻿using MedClinic.Desktop.Components.Patients;
+using MedClinic.Desktop.Windows.Patients;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -24,5 +25,14 @@ public partial class PatientPage : Page
     {
         PatientCreateWindow patientCreateWindow = new PatientCreateWindow();
         patientCreateWindow.ShowDialog();
+    }
+
+    private void Page_Loaded(object sender, RoutedEventArgs e)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            PatientComponents patientComponents = new PatientComponents();
+            st_Patient.Children.Add(patientComponents);
+        }
     }
 }

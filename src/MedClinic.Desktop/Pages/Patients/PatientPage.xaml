@@ -5,13 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MedClinic.Desktop.Components.Loader"
       mc:Ignorable="d" 
-      Title="PatientPage">
+      Title="PatientPage"
+      Loaded="Page_Loaded">
 
     <Grid
         Margin="10">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -55,10 +57,50 @@
         </Grid>
 
         <Grid
-            Grid.Row="1">
+            Grid.Row="1"
+            Margin="5 0 15 0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Text="No"
+                Grid.Column="0"
+                FontSize="14"
+                Margin="10 0 0 0"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Text="Ismi"
+                FontSize="14"
+                Grid.Column="1"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Text="Fameliyasi"
+                Grid.Column="2"
+                FontSize="14"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Text="Telefon raqami"
+                Grid.Column="3"
+                FontSize="14"
+                Style="{StaticResource TitleTextBlock}"/>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="2">
 
             <local:Loader
                 x:Name="Loader"
+                Visibility="Collapsed"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>
 
@@ -74,8 +116,9 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="Collapsed"
-                Content="Xozircha malumotlar yo'q"
-                FontSize="18">
+                Content="Ma'lumot topilmadi"
+                FontSize="18"
+                Foreground="{StaticResource BorderColor}">
             </Label>
         </Grid>
 
