@@ -21,9 +21,13 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <TextBlock
+                Text="Xona yaratish"
+                Style="{DynamicResource TextBlockStyle}"/>
 
             <Button
                 Name="Close_Button"

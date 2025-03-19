@@ -1,18 +1,19 @@
-﻿<Page x:Class="MedClinic.Desktop.Pages.Rooms.RoomCreatePage"
+﻿<Page x:Class="MedClinic.Desktop.Pages.Rooms.DoctorRoomCreatePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MedClinic.Desktop.Pages.Rooms"
       mc:Ignorable="d" 
-      Title="RoomCreatePage">
+      Title="DoctorRoomCreatePage"
+      Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel
             Grid.Row="0"
             Margin="0 60 0 0"
@@ -31,38 +32,8 @@
                 PreviewTextInput="tb_PreviewTextInput"
                 Style="{DynamicResource Update_TextBox_Style}"/>
 
-            <TextBlock
-                Text="Xona narxi :"
-                Margin="0 50 0 0"
-                Style="{DynamicResource TitleTextBlock}"/>
-
-            <TextBox
-                Name="tb_RoomPrice"
-                Margin="0 10 0 0"
-                Width="300"
-                MaxLength="10"
-                PreviewTextInput="tb_PreviewTextInput"
-                Style="{DynamicResource Update_TextBox_Style}"/>
-
-            <TextBlock
-                Text="Statusi :"
-                Margin="0 40 0 0"
-                Style="{DynamicResource TitleTextBlock}"/>
-
-            <ComboBox
-                FontSize="16"
-                Height="30"
-                Name="cb_Status"
-                Margin="0 10 0 0">
-
-                <ComboBoxItem Content="Easy" FontSize="16"/>
-                <ComboBoxItem Content="Premium" FontSize="16"/>
-                <ComboBoxItem Content="Gold" FontSize="16"/>
-
-            </ComboBox>
-
-
         </StackPanel>
+        
         <Button
             Grid.Row="1"
             Name="Save_Button"
