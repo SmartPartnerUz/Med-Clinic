@@ -7,7 +7,7 @@ public class UnitOfWork(AppDbContext dbContext) : IUnitOfWork, IDisposable
 {
     public IBedReadRepository BedRead { get; set; } = new BedReadRepository(dbContext);
     public IBedWriteRepository BedWrite { get; set; } = new BedWriteRepository(dbContext);
-    
+
     public IDoctorReadRepository DoctorRead { get; set; } = new DoctorReadRepository(dbContext);
     public IDoctorWriteRepository DoctorWrite { get; set; } = new DoctorWriteRepository(dbContext);
 

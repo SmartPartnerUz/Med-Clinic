@@ -49,6 +49,15 @@ public class Doctor : BaseEntity
     [Column("salary")]
     public double Salary { get; set; }
 
+    [Column("image_path")]
+    public string? ImagePath { get; set; } = string.Empty;
+
+    [Column("password_hash")]
+    public string? PasswordHash { get; set; } = string.Empty;
+
+    [Column("password_salt")]
+    public string? PasswordSalt { get; set;} = string.Empty;
+
     [Column("updated_at")]
     public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
 

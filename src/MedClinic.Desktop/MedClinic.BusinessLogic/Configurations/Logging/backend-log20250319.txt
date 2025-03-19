@@ -1,0 +1,30 @@
+2025-03-19 13:15:04.969 +05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-03-19 13:15:05.625 +05:00 [DBG] Entity Framework Core 9.0.3 initialized 'AppDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:9.0.4+fd2380957bee5cd86f336466af36b08c0163f1a5' with options: None
+2025-03-19 13:15:08.373 +05:00 [DBG] 'AppDbContext' generated a value for the property 'User.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-03-19 13:15:08.417 +05:00 [DBG] Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-03-19 13:15:08.423 +05:00 [DBG] SaveChanges starting for 'AppDbContext'.
+2025-03-19 13:15:08.425 +05:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2025-03-19 13:15:08.434 +05:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2025-03-19 13:15:08.519 +05:00 [DBG] Creating DbConnection.
+2025-03-19 13:15:08.568 +05:00 [DBG] Created DbConnection. (48ms).
+2025-03-19 13:15:08.572 +05:00 [DBG] Opening connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432'.
+2025-03-19 13:15:08.792 +05:00 [DBG] Opened connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432'.
+2025-03-19 13:15:08.796 +05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-03-19 13:15:08.800 +05:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-03-19 13:15:08.804 +05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (7ms).
+2025-03-19 13:15:08.809 +05:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "user" (id, birth_date, created_at, first_name, last_name, phone_number, updated_at)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-03-19 13:15:08.860 +05:00 [INF] Executed DbCommand (51ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "user" (id, birth_date, created_at, first_name, last_name, phone_number, updated_at)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2025-03-19 13:15:08.864 +05:00 [DBG] Closing data reader to 'smart-clinic-offline' on server 'tcp://localhost:5432'.
+2025-03-19 13:15:08.869 +05:00 [DBG] A data reader for 'smart-clinic-offline' on server 'tcp://localhost:5432' is being disposed after spending 5ms reading results.
+2025-03-19 13:15:08.871 +05:00 [DBG] Closing connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432'.
+2025-03-19 13:15:08.873 +05:00 [DBG] Closed connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432' (2ms).
+2025-03-19 13:15:08.879 +05:00 [DBG] An entity of type 'User' tracked by 'AppDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-03-19 13:15:08.880 +05:00 [DBG] SaveChanges completed for 'AppDbContext' with 1 entities written to the database.
+2025-03-19 13:15:08.883 +05:00 [INF] User "0195ad78-7850-748e-97b0-5befe1f2caa4" created successfully.
+2025-03-19 13:15:11.518 +05:00 [DBG] 'AppDbContext' disposed.
+2025-03-19 13:15:11.526 +05:00 [DBG] Disposing connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432'.
+2025-03-19 13:15:11.529 +05:00 [DBG] Disposed connection to database 'smart-clinic-offline' on server 'tcp://localhost:5432' (3ms).

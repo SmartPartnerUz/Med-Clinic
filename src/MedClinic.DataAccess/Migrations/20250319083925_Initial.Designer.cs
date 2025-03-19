@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MedClinic.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250317115317_FirstInitial")]
-    partial class FirstInitial
+    [Migration("20250319083925_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,18 @@ namespace MedClinic.DataAccess.Migrations
                     b.Property<Guid>("HospitalServiceId")
                         .HasColumnType("uuid")
                         .HasColumnName("hospital_service_id");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("text")
+                        .HasColumnName("image_path");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text")
+                        .HasColumnName("password_hash");
+
+                    b.Property<string>("PasswordSalt")
+                        .HasColumnType("text")
+                        .HasColumnName("password_salt");
 
                     b.Property<Guid>("PositionId")
                         .HasColumnType("uuid")
@@ -503,10 +515,6 @@ namespace MedClinic.DataAccess.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("text")
                         .HasColumnName("first_name");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("text")
-                        .HasColumnName("image_path");
 
                     b.Property<string>("LastName")
                         .HasColumnType("text")
