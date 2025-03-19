@@ -4,8 +4,8 @@ namespace MedClinic.BusinessLogic.Services;
 
 public interface IUserService
 {
-    Task CreateUser(AddUserDto user);
+    Task<(bool, Guid)> CreateUser(AddUserDto user);
     PagedResult<UserDto> GetAllUsers(UserSortFilterOptions opions);
-    Task UpdateUser(UpdateDto user);
+    Task UpdateUser(UpdateUserDto user);
     void DeleteUser(Guid id);
 }

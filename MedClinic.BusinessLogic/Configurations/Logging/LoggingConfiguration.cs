@@ -30,7 +30,6 @@ public static class LoggingConfiguration
             // Set up Serilog
             string logPath = Path.Combine(logDir, "backend-log.txt");
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
                 .WriteTo.File(logPath, rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 

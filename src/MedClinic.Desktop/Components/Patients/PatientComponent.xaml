@@ -53,6 +53,7 @@
                 Content="Ko'rish"
                 FontSize="16"
                 Width="100"
+                Click="View_Button_Click"
                 Style="{StaticResource ViewButton}"/>
 
         </Grid>

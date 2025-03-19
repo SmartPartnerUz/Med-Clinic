@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace MedClinic.Desktop.Components.Patients
+namespace MedClinic.Desktop.Components.Patients;
+
+/// <summary>
+/// Interaction logic for PatientComponents.xaml
+/// </summary>
+public partial class PatientComponents : UserControl
 {
-    /// <summary>
-    /// Interaction logic for PatientComponents.xaml
-    /// </summary>
-    public partial class PatientComponents : UserControl
+    public PatientComponents()
     {
-        public PatientComponents()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    private void View_Button_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }

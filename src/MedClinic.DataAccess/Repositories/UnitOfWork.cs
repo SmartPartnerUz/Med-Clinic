@@ -1,63 +1,145 @@
 ﻿using MedClinic.DataAccess.Data;
 using MedClinic.DataAccess.Interfaces;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MedClinic.DataAccess.Repositories;
 
-public class UnitOfWork(AppDbContext dbContext) : IUnitOfWork, IDisposable
+public class UnitOfWork : IUnitOfWork, IDisposable
 {
-    public IBedReadRepository BedRead { get; set; } = new BedReadRepository(dbContext);
-    public IBedWriteRepository BedWrite { get; set; } = new BedWriteRepository(dbContext);
+    private readonly AppDbContext _dbContext;
+    private IDbContextTransaction? _transaction;
+    private bool _disposed = false;
 
-    public IDoctorReadRepository DoctorRead { get; set; } = new DoctorReadRepository(dbContext);
-    public IDoctorWriteRepository DoctorWrite { get; set; } = new DoctorWriteRepository(dbContext);
+    public UnitOfWork(AppDbContext dbContext)
+    {
+        _dbContext = dbContext;
 
-    public IDoctorRoomReadRepository DoctorRoomRead { get; set; } = new DoctorRoomReadRepository(dbContext);
-    public IDoctorRoomWriteRepository DoctorRoomWrite { get; set; } = new DoctorRoomWriteRepository(dbContext);
+        // Initialize repositories
+        BedRead = new BedReadRepository(_dbContext);
+        BedWrite = new BedWriteRepository(_dbContext);
+        DoctorRead = new DoctorReadRepository(_dbContext);
+        DoctorWrite = new DoctorWriteRepository(_dbContext);
+        DoctorRoomRead = new DoctorRoomReadRepository(_dbContext);
+        DoctorRoomWrite = new DoctorRoomWriteRepository(_dbContext);
+        DoctorProfitRead = new DoctorProfitReadRepository(_dbContext);
+        DoctorProfitWrite = new DoctorProfitWriteRepository(_dbContext);
+        FirstViewOrderRead = new FirstViewOrderReadRepository(_dbContext);
+        FirstViewOrderWrite = new FirstViewOrderWriteRepository(_dbContext);
+        HospitalServiceRead = new HospitalServiceReadRepository(_dbContext);
+        HospitalServiceWrite = new HospitalServiceWriteRepository(_dbContext);
+        LaboratoryServiceRead = new LaboratoryServiceReadRepository(_dbContext);
+        LaboratoryServiceWrite = new LaboratoryServiceWriteRepository(_dbContext);
+        OrderRead = new OrderReadRepository(_dbContext);
+        OrderWrite = new OrderWriteRepository(_dbContext);
+        PatientRead = new PatientReadRepository(_dbContext);
+        PatientWrite = new PatientWriteRepository(_dbContext);
+        PayDeskRead = new PayDeskReadRepository(_dbContext);
+        PayDeskWrite = new PayDeskWriteRepository(_dbContext);
+        PositionRead = new PositionReadRepository(_dbContext);
+        PositionWrite = new PositionWriteRepository(_dbContext);
+        RoleRead = new RoleReadRepository(_dbContext);
+        RoleWrite = new RoleWriteRepository(_dbContext);
+        RoomRead = new RoomReadRepository(_dbContext);
+        RoomWrite = new RoomWriteRepository(_dbContext);
+        StatusRead = new StatusReadRepository(_dbContext);
+        StatusWrite = new StatusWriteRepository(_dbContext);
+        UserRead = new UserReadRepository(_dbContext);
+        UserWrite = new UserWriteRepository(_dbContext);
+    }
 
-    public IDoctorProfitReadRepository DoctorProfitRead { get; set; } = new DoctorProfitReadRepository(dbContext);
-    public IDoctorProfitWriteRepository DoctorProfitWrite { get; set; } = new DoctorProfitWriteRepository(dbContext);
+    public IBedReadRepository BedRead { get; }
+    public IBedWriteRepository BedWrite { get; }
+    public IDoctorReadRepository DoctorRead { get; }
+    public IDoctorWriteRepository DoctorWrite { get; }
+    public IDoctorRoomReadRepository DoctorRoomRead { get; }
+    public IDoctorRoomWriteRepository DoctorRoomWrite { get; }
+    public IDoctorProfitReadRepository DoctorProfitRead { get; }
+    public IDoctorProfitWriteRepository DoctorProfitWrite { get; }
+    public IFirstViewOrderReadRepository FirstViewOrderRead { get; }
+    public IFirstViewOrderWriteRepository FirstViewOrderWrite { get; }
+    public IHospitalServiceReadRepository HospitalServiceRead { get; }
+    public IHospitalServiceWriteRepository HospitalServiceWrite { get; }
+    public ILaboratoryServiceReadRepository LaboratoryServiceRead { get; }
+    public ILaboratoryServiceWriteRepository LaboratoryServiceWrite { get; }
+    public IOrderReadRepository OrderRead { get; }
+    public IOrderWriteRepository OrderWrite { get; }
+    public IPatientReadRepository PatientRead { get; }
+    public IPatientWriteRepository PatientWrite { get; }
+    public IPayDeskReadRepository PayDeskRead { get; }
+    public IPayDeskWriteRepository PayDeskWrite { get; }
+    public IPositionReadRepository PositionRead { get; }
+    public IPositionWriteRepository PositionWrite { get; }
+    public IRoleReadRepository RoleRead { get; }
+    public IRoleWriteRepository RoleWrite { get; }
+    public IRoomReadRepository RoomRead { get; }
+    public IRoomWriteRepository RoomWrite { get; }
+    public IStatusReadRepository StatusRead { get; }
+    public IStatusWriteRepository StatusWrite { get; }
+    public IUserReadRepository UserRead { get; }
+    public IUserWriteRepository UserWrite { get; }
 
-    public IFirstViewOrderReadRepository FirstViewOrderRead { get; set; } = new FirstViewOrderReadRepository(dbContext);
-    public IFirstViewOrderWriteRepository FirstViewOrderWrite { get; set; } = new FirstViewOrderWriteRepository(dbContext);
+    public async Task BeginTransactionAsync()
+    {
+        _transaction = await _dbContext.Database.BeginTransactionAsync();
+    }
 
-    public IHospitalServiceReadRepository HospitalServiceRead { get; set; } = new HospitalServiceReadRepository(dbContext);
-    public IHospitalServiceWriteRepository HospitalServiceWrite { get; set; } = new HospitalServiceWriteRepository(dbContext);
+    public async Task CommitTransactionAsync()
+    {
+        try
+        {
+            await _dbContext.SaveChangesAsync();
+            await _transaction?.CommitAsync()!;
+        }
+        finally
+        {
+            if (_transaction != null)
+            {
+                await _transaction.DisposeAsync();
+                _transaction = null;
+            }
+        }
+    }
 
-    public ILaboratoryServiceReadRepository LaboratoryServiceRead { get; set; } = new LaboratoryServiceReadRepository(dbContext);
-    public ILaboratoryServiceWriteRepository LaboratoryServiceWrite { get; set; } = new LaboratoryServiceWriteRepository(dbContext);
-
-    public IOrderReadRepository OrderRead { get; set; } = new OrderReadRepository(dbContext);
-    public IOrderWriteRepository OrderWrite { get; set; } = new OrderWriteRepository(dbContext);
-
-    public IPatientReadRepository PatientRead { get; set; } = new PatientReadRepository(dbContext);
-    public IPatientWriteRepository PatientWrite { get; set; } = new PatientWriteRepository(dbContext);
-
-    public IPayDeskReadRepository PayDeskRead { get; set; } = new PayDeskReadRepository(dbContext);
-    public IPayDeskWriteRepository PayDeskWrite { get; set; } = new PayDeskWriteRepository(dbContext);
-
-    public IPositionReadRepository PositionRead { get; set; } = new PositionReadRepository(dbContext);
-    public IPositionWriteRepository PositionWrite { get; set; } = new PositionWriteRepository(dbContext);
-
-    public IRoleReadRepository RoleRead { get; set; } = new RoleReadRepository(dbContext);
-    public IRoleWriteRepository RoleWrite { get; set; } = new RoleWriteRepository(dbContext);
-
-    public IRoomReadRepository RoomRead { get; set; } = new RoomReadRepository(dbContext);
-    public IRoomWriteRepository RoomWrite { get; set; } = new RoomWriteRepository(dbContext);
-
-    public IStatusReadRepository StatusRead { get; set; } = new StatusReadRepository(dbContext);
-    public IStatusWriteRepository StatusWrite { get; set; } = new StatusWriteRepository(dbContext);
-
-    public IUserReadRepository UserRead { get; set; } = new UserReadRepository(dbContext);
-    public IUserWriteRepository UserWrite { get; set; } = new UserWriteRepository(dbContext);
+    public async Task RollbackTransactionAsync()
+    {
+        try
+        {
+            if (_transaction != null)
+            {
+                await _transaction.RollbackAsync();
+            }
+        }
+        finally
+        {
+            if (_transaction != null)
+            {
+                await _transaction.DisposeAsync();
+                _transaction = null;
+            }
+        }
+    }
 
     public async Task<int> SaveChangesAsync()
     {
-        return await dbContext.SaveChangesAsync();
+        return await _dbContext.SaveChangesAsync();
     }
 
     public void Dispose()
     {
+        Dispose(true);
         GC.SuppressFinalize(this);
     }
-}
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _transaction?.Dispose();
+                _dbContext.Dispose();
+            }
+            _disposed = true;
+        }
+    }
+}

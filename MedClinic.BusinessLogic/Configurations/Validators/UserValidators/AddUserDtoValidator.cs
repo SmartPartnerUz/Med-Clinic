@@ -14,8 +14,8 @@ public class AddUserDtoValidator : AbstractValidator<AddUserDto>
             .NotEmpty().WithMessage("Last name is required.")
             .MaximumLength(50).WithMessage("Last name must be at most 50 characters long.");
 
-        //RuleFor(x => x.BirthDate)
-        //    .NotNull().WithMessage("Birth date is required.")
-        //    .LessThan(DateTime.UtcNow).WithMessage("Birth date must be in the past.");
+        RuleFor(x => x.BirthDate)
+            .NotNull().WithMessage("Birth date is required.")
+            .LessThan(DateTime.UtcNow).WithMessage("Birth date must be in the past.");
     }
 }

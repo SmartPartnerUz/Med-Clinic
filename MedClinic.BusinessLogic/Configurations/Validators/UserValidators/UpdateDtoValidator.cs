@@ -3,7 +3,7 @@ using MedClinic.BusinessLogic.Services;
 
 namespace MedClinic.BusinessLogic.Configurations.Validators;
 
-public class UpdateDtoValidator : AbstractValidator<UpdateDto>
+public class UpdateDtoValidator : AbstractValidator<UpdateUserDto>
 {
     public UpdateDtoValidator()
     {
