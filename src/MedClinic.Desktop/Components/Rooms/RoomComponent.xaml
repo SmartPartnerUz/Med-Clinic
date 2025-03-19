@@ -5,8 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MedClinic.Desktop.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             Height="70">
+    <Border
+        Name="Room_Border"
+        CornerRadius="5"
+        Margin="5 10 20 10"
+        Background="{StaticResource FirstColor}">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Name="tb_Number"
+                Text="1"
+                Margin="10 0 0 0"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="1"
+                Name="tb_RoomNumber"
+                Text="1"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="2"
+                Name="tb_TotalBad"
+                Text="5"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="3"
+                Name="tb_BusyBad"
+                Text="3"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="4"
+                Name="tb_Price"
+                Text="150000"
+                Style="{StaticResource TitleTextBlock}"/>
+
+        </Grid>
+
+        <Border.Effect>
+            <DropShadowEffect
+                BlurRadius="10"
+                Opacity="1"
+                ShadowDepth="0"
+                Color="#68F761">
+
+            </DropShadowEffect>
+        </Border.Effect>
+
+    </Border>
 </UserControl>

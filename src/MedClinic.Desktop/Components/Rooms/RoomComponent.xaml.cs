@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Media.Effects;
 
-namespace MedClinic.Desktop.Components
+namespace MedClinic.Desktop.Components;
+
+/// <summary>
+/// Interaction logic for RoomComponents.xaml
+/// </summary>
+public partial class RoomComponents : UserControl
 {
-    /// <summary>
-    /// Interaction logic for RoomComponents.xaml
-    /// </summary>
-    public partial class RoomComponents : UserControl
+    public RoomComponents()
     {
-        public RoomComponents()
+        InitializeComponent();
+    }
+
+    public void SetData(int number)
+    {
+        tb_Number.Text = number.ToString();
+
+        Color color = (Color)ColorConverter.ConvertFromString("#E1AA3C");
+
+        if (number == 5 || number == 10 || number == 12 || number == 15 || number == 25)
         {
-            InitializeComponent();
+            (Room_Border.Effect as DropShadowEffect)!.Color = color;
         }
     }
 }
