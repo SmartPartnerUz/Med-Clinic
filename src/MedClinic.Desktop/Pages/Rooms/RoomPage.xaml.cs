@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using MedClinic.Desktop.Components;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MedClinic.Desktop.Pages.Rooms;
@@ -25,6 +26,11 @@ public partial class RoomPage : Page
 
     private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)
     {
-
+        for (int i = 1; i < 30; i++)
+        {
+            RoomComponents roomComponents = new RoomComponents();
+            roomComponents.SetData(i);
+            st_Rooms.Children.Add(roomComponents);
+        }
     }
 }

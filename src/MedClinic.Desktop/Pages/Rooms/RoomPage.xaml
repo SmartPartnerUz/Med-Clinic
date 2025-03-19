@@ -13,6 +13,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -57,19 +58,63 @@
         </Grid>
 
         <Grid
-            Grid.Row="1">
+            Grid.Row="1"
+            Margin="5 0 20 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Text="No"
+                Margin="10 0 0 0"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="1"
+                FontSize="14"
+                Text="Xona raqami"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="2"
+                FontSize="14"
+                Text="Barcha o'rinlar"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="3"
+                FontSize="14"
+                Text="Bo'sh o'rinlar soni"
+                Style="{StaticResource TitleTextBlock}"/>
+
+            <TextBlock
+                Grid.Column="4"
+                Text="Xona narxi"
+                FontSize="14"
+                Style="{StaticResource TitleTextBlock}"/>
+
+        </Grid>
+
+        <Grid
+            Grid.Row="2">
 
             <local:Loader
                 x:Name="Loader"
+                Visibility="Hidden"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>
 
             <ScrollViewer 
                 x:Name="scrolViver">
 
-                <WrapPanel 
-                    x:Name="wrpDoctors">
-                </WrapPanel>
+                <StackPanel 
+                    x:Name="st_Rooms">
+                </StackPanel>
 
             </ScrollViewer>
 
@@ -78,7 +123,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="Collapsed"
-                Content="Xozircha malumotlar yo'q"
+                Content="Ma'lumot topilmadi."
                 FontSize="18">
             </Label>
         </Grid>
