@@ -52,6 +52,7 @@
     </Style>
 
     <Style x:Key="Update_TextBox_Style" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="200"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{ x:Type TextBox}">
@@ -64,7 +65,7 @@
                         </Grid.RowDefinitions>
                         <TextBox
                             x:Name="FirstName"
-                            Width="200"
+                            Width="{TemplateBinding Width}"
                             MaxLength="{TemplateBinding MaxLength}"
                             Grid.Row="0"
                             Margin="2 0 0 0"
@@ -78,7 +79,6 @@
 
                         </TextBox>
                         <Border
-                            Width="200"
                             x:Name="bordername"
                             Grid.Row="1"
                             Background="{DynamicResource BorderColor}">

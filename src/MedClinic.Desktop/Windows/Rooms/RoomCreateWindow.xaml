@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedClinic.Desktop.Windows.Rooms"
         mc:Ignorable="d"
-        Title="RoomCreateWindow" Height="450" Width="800">
-    <Grid>
+        Title="RoomCreateWindow"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded">
+    <Border
+        Height="600"
+        Width="500"
+        CornerRadius="10"
+        Background="{DynamicResource FirstColor}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button
+                Name="Close_Button"
+                Click="Close_Button_Click"
+                Style="{DynamicResource ClosedButton}"/>
+
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Row="1">
+
+                <RadioButton
+                    IsChecked="True"
+                    x:Name="rb_Room"
+                    Content="Xona"
+                    Click="rb_Room_Click"
+                    Style="{DynamicResource TabMenuButton}"/>
+
+                <RadioButton
+                    x:Name="rb_DoctorRoom"
+                    Content="Shifokor xonasi"
+                    Click="rb_DoctorRoom_Click"
+                    Style="{DynamicResource TabMenuButton}"/>
+
+                <RadioButton
+                    x:Name="rb_Bed"
+                    Content="Yotoq"
+                    Click="rb_Bed_Click"
+                    Style="{DynamicResource TabMenuButton}"/>
+
+            </StackPanel>
+
+            <Border
+                Grid.Row="2">
+
+                <Frame
+                    Name="PageNavigator"
+                    NavigationUIVisibility="Hidden"/>
+
+            </Border>
+
+        </Grid>
         
-    </Grid>
+    </Border>
 </Window>

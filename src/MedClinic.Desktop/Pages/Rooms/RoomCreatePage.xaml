@@ -1,0 +1,69 @@
+﻿<Page x:Class="MedClinic.Desktop.Pages.Rooms.RoomCreatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedClinic.Desktop.Pages.Rooms"
+      mc:Ignorable="d" 
+      Title="RoomCreatePage">
+
+    <Grid>
+        <StackPanel
+            Margin="0 60 0 0"
+            HorizontalAlignment="Center"
+            Orientation="Vertical">
+
+            <TextBlock
+                Text="Xona rqami :"
+                Style="{DynamicResource TitleTextBlock}"/>
+
+            <TextBox
+                Margin="0 10 0 0"
+                Name="tb_RoomNumber"
+                Width="300"
+                MaxLength="4"
+                PreviewTextInput="tb_PreviewTextInput"
+                Style="{DynamicResource Update_TextBox_Style}"/>
+
+            <TextBlock
+                Text="Xona narxi :"
+                Margin="0 50 0 0"
+                Style="{DynamicResource TitleTextBlock}"/>
+
+            <TextBox
+                Name="tb_RoomPrice"
+                Margin="0 10 0 0"
+                Width="300"
+                MaxLength="10"
+                PreviewTextInput="tb_PreviewTextInput"
+                Style="{DynamicResource Update_TextBox_Style}"/>
+
+            <TextBlock
+                Text="Statusi :"
+                Margin="0 40 0 0"
+                Style="{DynamicResource TitleTextBlock}"/>
+
+            <ComboBox
+                FontSize="16"
+                Height="30"
+                Name="cb_Status"
+                Margin="0 10 0 0">
+
+                <ComboBoxItem Content="Easy" FontSize="16"/>
+                <ComboBoxItem Content="Premium" FontSize="16"/>
+                <ComboBoxItem Content="Gold" FontSize="16"/>
+
+            </ComboBox>
+
+            <Button
+                Name="Save_Button"
+                Margin="0 100 0 0"
+                Width="200"
+                Content="Saqlash"
+                FontSize="20"
+                Click="Save_Button_Click"
+                Style="{DynamicResource LoginButton}"/>
+
+        </StackPanel>
+    </Grid>
+</Page>
