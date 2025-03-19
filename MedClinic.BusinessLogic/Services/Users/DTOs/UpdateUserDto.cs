@@ -1,6 +1,6 @@
 ﻿namespace MedClinic.BusinessLogic.Services;
 
-public class UpdateDto
+public class UpdateUserDto
 {
     public Guid Id { get; set; }
     public string? FirstName { get; set; } = string.Empty;

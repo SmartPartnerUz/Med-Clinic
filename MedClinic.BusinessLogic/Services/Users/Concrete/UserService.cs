@@ -13,15 +13,15 @@ public class UserService(IUnitOfWork unitOfWork,
                          ILogger<UserService> logger,
                          IMapper mapper,
                          IValidator<AddUserDto> addUserValidator,
-                         IValidator<UpdateDto> updateUserValidator) : IUserService
+                         IValidator<UpdateUserDto> updateUserValidator) : IUserService
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private readonly ILogger<UserService> _logger = logger;
     private readonly IMapper _mapper = mapper;
     private readonly IValidator<AddUserDto> _addUserValidator = addUserValidator;
-    private readonly IValidator<UpdateDto> _updateUserValidator = updateUserValidator;
+    private readonly IValidator<UpdateUserDto> _updateUserValidator = updateUserValidator;
 
-    public async Task CreateUser(AddUserDto user)
+    public async Task<(bool, Guid)> CreateUser(AddUserDto user)
     {
         try
         {
@@ -34,6 +34,7 @@ public class UserService(IUnitOfWork unitOfWork,
 
             // Map DTO to User entity
             var newUser = _mapper.Map<User>(user);
+            newUser.Id = Guid.NewGuid();
             newUser.CreatedAt = DateTime.UtcNow;
             newUser.UpdatedAt = DateTime.UtcNow;
 
@@ -43,20 +44,21 @@ public class UserService(IUnitOfWork unitOfWork,
             if (!isCreated)
             {
                 _logger.LogError("User creation failed for {Id}.", newUser.Id);
-                throw new Exception($"User creation failed! {newUser.Id}");
+                return (false, Guid.Empty);
             }
 
             _logger.LogInformation("User {UserId} created successfully.", newUser.Id);
+            return (true, newUser.Id);
         }
         catch (ValidationException ex)
         {
             _logger.LogWarning("User creation failed due to validation errors: {Errors}", ex.Errors);
-            throw;
+            return (false, Guid.Empty);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "An error occurred while creating the user.");
-            throw;
+            return (false, Guid.Empty);
         }
     }
 
@@ -90,7 +92,7 @@ public class UserService(IUnitOfWork unitOfWork,
         return userDtos;
     }
 
-    public async Task UpdateUser(UpdateDto user)
+    public async Task UpdateUser(UpdateUserDto user)
     {
         try
         {

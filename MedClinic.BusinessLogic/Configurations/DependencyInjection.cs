@@ -25,6 +25,7 @@ public static class DependencyInjection
         #region Dependency Injection
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IDoctorService, DoctorService>();
         #endregion
 
         return services;
