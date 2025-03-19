@@ -76,18 +76,18 @@ public partial class LoginWindow : Window
     {
         try
         {
-            var userDto = new AddUserDto
-            {
-                FirstName = "Sardor",
-                LastName = "Saminov",
-                PhoneNumber = textboxPhone.Text
-            };
+            //var userDto = new AddUserDto
+            //{
+            //    FirstName = "Sardor",
+            //    LastName = "Saminov",
+            //    PhoneNumber = textboxPhone.Text
+            //};
 
-            await _userService.CreateUser(userDto);
+            //await _userService.CreateUser(userDto);
 
-            MessageBox.Show("User registered successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            //MessageBox.Show("User registered successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            var mainWindow = WindowFactory.CreateMainWindow();
+            MainWindow mainWindow = WindowFactory.CreateMainWindow();
             mainWindow.Show();
             this.Close();
         }
