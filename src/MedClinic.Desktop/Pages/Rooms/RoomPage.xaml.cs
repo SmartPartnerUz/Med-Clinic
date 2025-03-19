@@ -1,4 +1,5 @@
 ﻿using MedClinic.Desktop.Components;
+using MedClinic.Desktop.Windows.Rooms;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -21,7 +22,8 @@ public partial class RoomPage : Page
 
     private void RoomCreate_Button_Click(object sender, System.Windows.RoutedEventArgs e)
     {
-
+        RoomCreateWindow roomCreateWindow = new RoomCreateWindow();
+        roomCreateWindow.ShowDialog();
     }
 
     private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e)

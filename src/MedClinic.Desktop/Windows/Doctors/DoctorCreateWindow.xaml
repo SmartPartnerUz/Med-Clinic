@@ -237,8 +237,8 @@
                 <Button
                     Grid.Row="2"
                     x:Name="Create_Button"
-                    FontSize="18"
-                    Content="Yaratish"
+                    FontSize="20"
+                    Content="Saqlash"
                     Width="200"
                     Style="{StaticResource LoginButton}"
                     Click="Create_Button_Click"/>
