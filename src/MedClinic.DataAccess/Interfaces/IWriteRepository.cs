@@ -2,8 +2,8 @@
 
 public interface IWriteRepository<T> where T : class
 {
-    Task AddAsync(T entity);
-    void Update(T entity);
+    Task<bool> AddAsync(T entity);
+    bool Update(T entity);
     void Delete(T entity);
     Task<bool> SaveChangesAsync();
 }

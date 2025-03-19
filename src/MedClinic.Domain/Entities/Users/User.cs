@@ -19,9 +19,6 @@ public class User : BaseEntity
     [Column("birth_date")]
     public DateTime? BirthDate { get; set; } = DateTime.UtcNow;
 
-    [Column("image_path")]
-    public string? ImagePath { get; set; } = string.Empty;
-
     [Column("updated_at")]
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 

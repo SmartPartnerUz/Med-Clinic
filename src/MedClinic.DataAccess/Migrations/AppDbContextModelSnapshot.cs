@@ -125,6 +125,18 @@ namespace MedClinic.DataAccess.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("hospital_service_id");
 
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("text")
+                        .HasColumnName("image_path");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text")
+                        .HasColumnName("password_hash");
+
+                    b.Property<string>("PasswordSalt")
+                        .HasColumnType("text")
+                        .HasColumnName("password_salt");
+
                     b.Property<Guid>("PositionId")
                         .HasColumnType("uuid")
                         .HasColumnName("position_id");
@@ -500,10 +512,6 @@ namespace MedClinic.DataAccess.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("text")
                         .HasColumnName("first_name");
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("text")
-                        .HasColumnName("image_path");
 
                     b.Property<string>("LastName")
                         .HasColumnType("text")

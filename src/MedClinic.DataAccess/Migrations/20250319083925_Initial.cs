@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MedClinic.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstInitial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -88,7 +88,6 @@ namespace MedClinic.DataAccess.Migrations
                     last_name = table.Column<string>(type: "text", nullable: true),
                     phone_number = table.Column<string>(type: "text", nullable: true),
                     birth_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    image_path = table.Column<string>(type: "text", nullable: true),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -152,6 +151,9 @@ namespace MedClinic.DataAccess.Migrations
                     hospital_service_id = table.Column<Guid>(type: "uuid", nullable: false),
                     bed_percentage = table.Column<int>(type: "integer", nullable: false),
                     salary = table.Column<double>(type: "double precision", nullable: false),
+                    image_path = table.Column<string>(type: "text", nullable: true),
+                    password_hash = table.Column<string>(type: "text", nullable: true),
+                    password_salt = table.Column<string>(type: "text", nullable: true),
                     updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     PostionId = table.Column<Guid>(type: "uuid", nullable: false),
                     created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)

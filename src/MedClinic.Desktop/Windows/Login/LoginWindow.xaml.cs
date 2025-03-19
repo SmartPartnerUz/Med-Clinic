@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using MedClinic.BusinessLogic.Services;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -10,9 +11,12 @@ namespace MedClinic.Desktop.Windows.Login;
 /// </summary>
 public partial class LoginWindow : Window
 {
-    public LoginWindow()
+    private readonly IUserService _userService;
+
+    public LoginWindow(IUserService userService)
     {
         InitializeComponent();
+        _userService = userService;
     }
 
     private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -68,11 +72,29 @@ public partial class LoginWindow : Window
         }
     }
 
-    private void LoginBtn_Click(object sender, RoutedEventArgs e)
+    private async void LoginBtn_Click(object sender, RoutedEventArgs e)
     {
-        MainWindow mainWindow = new MainWindow();
-        mainWindow.Show();
-        this.Close();
+        try
+        {
+            var userDto = new AddUserDto
+            {
+                FirstName = "Sardor",
+                LastName = "Saminov",
+                PhoneNumber = textboxPhone.Text
+            };
+
+            await _userService.CreateUser(userDto);
+
+            MessageBox.Show("User registered successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            var mainWindow = WindowFactory.CreateMainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error: {ex.Message}", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 
     private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
