@@ -66,11 +66,13 @@ public partial class RoomCreateWindow : Window
 
     private void rb_DoctorRoom_Click(object sender, RoutedEventArgs e)
     {
-
+        DoctorRoomCreatePage doctorRoomCreatePage = new DoctorRoomCreatePage();
+        PageNavigator.Content = doctorRoomCreatePage;
     }
 
     private void rb_Bed_Click(object sender, RoutedEventArgs e)
     {
-
+        BedCreatePage bedCreatePage = new BedCreatePage();
+        PageNavigator.Content = bedCreatePage;
     }
 }
