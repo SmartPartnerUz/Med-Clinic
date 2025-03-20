@@ -78,7 +78,7 @@ public partial class LoginWindow : Window
         {
             //var userDto = new AddUserDto
             //{
-            //    FirstName = "Sardor",
+            //    FirstName = "Akrom",
             //    LastName = "Saminov",
             //    PhoneNumber = textboxPhone.Text
             //};
