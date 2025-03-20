@@ -4,4 +4,5 @@ namespace MedClinic.BusinessLogic.Services;
 
 public class BedSortFilterOptions : SortFilterPageOptions
 {
+    public Guid? RoomId { get; set; }
 }

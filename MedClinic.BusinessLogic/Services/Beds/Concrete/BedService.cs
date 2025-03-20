@@ -118,7 +118,7 @@ public class BedService : IBedService
     /// <returns>A paged result of bed DTOs.</returns>
     public PagedResult<BedDto> GetAllBeds(BedSortFilterOptions options)
     {
-        var beds = _unitOfWork.BedRead.GetAll().AsNoTracking();
+        var beds = _unitOfWork.BedRead.GetAll().AsNoTracking().SortFilter(options);
         var bedDtos = beds.Select(b => _mapper.Map<BedDto>(b)).AsPagedResult(options);
         return bedDtos;
     }
