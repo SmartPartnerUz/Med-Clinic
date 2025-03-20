@@ -9,18 +9,44 @@ using Microsoft.Extensions.Logging;
 
 namespace MedClinic.BusinessLogic.Services;
 
-public class UserService(IUnitOfWork unitOfWork,
-                         ILogger<UserService> logger,
-                         IMapper mapper,
-                         IValidator<AddUserDto> addUserValidator,
-                         IValidator<UpdateUserDto> updateUserValidator) : IUserService
+/// <summary>
+/// Service for managing users.
+/// </summary>
+public class UserService : IUserService
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
-    private readonly ILogger<UserService> _logger = logger;
-    private readonly IMapper _mapper = mapper;
-    private readonly IValidator<AddUserDto> _addUserValidator = addUserValidator;
-    private readonly IValidator<UpdateUserDto> _updateUserValidator = updateUserValidator;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly ILogger<UserService> _logger;
+    private readonly IMapper _mapper;
+    private readonly IValidator<AddUserDto> _addUserValidator;
+    private readonly IValidator<UpdateUserDto> _updateUserValidator;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UserService"/> class.
+    /// </summary>
+    /// <param name="unitOfWork">The unit of work.</param>
+    /// <param name="logger">The logger.</param>
+    /// <param name="mapper">The mapper.</param>
+    /// <param name="addUserValidator">The validator for adding a user.</param>
+    /// <param name="updateUserValidator">The validator for updating a user.</param>
+    public UserService(
+        IUnitOfWork unitOfWork,
+        ILogger<UserService> logger,
+        IMapper mapper,
+        IValidator<AddUserDto> addUserValidator,
+        IValidator<UpdateUserDto> updateUserValidator)
+    {
+        _unitOfWork = unitOfWork;
+        _logger = logger;
+        _mapper = mapper;
+        _addUserValidator = addUserValidator;
+        _updateUserValidator = updateUserValidator;
+    }
+
+    /// <summary>
+    /// Creates a new user.
+    /// </summary>
+    /// <param name="user">The user DTO.</param>
+    /// <returns>A tuple indicating success and the ID of the created user.</returns>
     public async Task<(bool, Guid)> CreateUser(AddUserDto user)
     {
         try
@@ -62,6 +88,10 @@ public class UserService(IUnitOfWork unitOfWork,
         }
     }
 
+    /// <summary>
+    /// Deletes a user by ID.
+    /// </summary>
+    /// <param name="id">The user ID.</param>
     public async void DeleteUser(Guid id)
     {
         try
@@ -85,13 +115,22 @@ public class UserService(IUnitOfWork unitOfWork,
         }
     }
 
-    public PagedResult<UserDto> GetAllUsers(UserSortFilterOptions opions)
+    /// <summary>
+    /// Gets all users with sorting and filtering options.
+    /// </summary>
+    /// <param name="options">The sorting and filtering options.</param>
+    /// <returns>A paged result of user DTOs.</returns>
+    public PagedResult<UserDto> GetAllUsers(UserSortFilterOptions options)
     {
         var users = _unitOfWork.UserRead.GetAll().AsNoTracking();
-        var userDtos = users.Select(u => _mapper.Map<UserDto>(u)).AsPagedResult(opions);
+        var userDtos = users.Select(u => _mapper.Map<UserDto>(u)).AsPagedResult(options);
         return userDtos;
     }
 
+    /// <summary>
+    /// Updates an existing user.
+    /// </summary>
+    /// <param name="user">The user DTO.</param>
     public async Task UpdateUser(UpdateUserDto user)
     {
         try
@@ -109,6 +148,8 @@ public class UserService(IUnitOfWork unitOfWork,
                 throw new KeyNotFoundException($"User with ID {user.Id} not found.");
             }
 
+            // Map updated properties from DTO to entity
+            _mapper.Map(user, existingUser);
             existingUser.UpdatedAt = DateTime.UtcNow;
 
             var isUpdated = _unitOfWork.UserWrite.Update(existingUser);

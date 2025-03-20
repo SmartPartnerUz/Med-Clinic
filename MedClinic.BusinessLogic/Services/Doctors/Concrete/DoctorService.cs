@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 
 namespace MedClinic.BusinessLogic.Services;
 
+/// <summary>
+/// Service for managing doctors.
+/// </summary>
 public class DoctorService : IDoctorService
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -18,6 +21,15 @@ public class DoctorService : IDoctorService
     private readonly IValidator<UpdateDoctorDto> _updateDoctorValidator;
     private readonly IUserService _userService;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DoctorService"/> class.
+    /// </summary>
+    /// <param name="unitOfWork">The unit of work.</param>
+    /// <param name="logger">The logger.</param>
+    /// <param name="mapper">The mapper.</param>
+    /// <param name="addDoctorValidator">The validator for adding a doctor.</param>
+    /// <param name="updateDoctorValidator">The validator for updating a doctor.</param>
+    /// <param name="userService">The user service.</param>
     public DoctorService(
         IUnitOfWork unitOfWork,
         ILogger<DoctorService> logger,
@@ -34,6 +46,11 @@ public class DoctorService : IDoctorService
         _userService = userService;
     }
 
+    /// <summary>
+    /// Creates a new doctor.
+    /// </summary>
+    /// <param name="doctor">The doctor DTO.</param>
+    /// <returns>A tuple indicating success and the ID of the created doctor.</returns>
     public async Task<(bool, Guid)> CreateDoctor(AddDoctorDto doctor)
     {
         try
@@ -110,6 +127,10 @@ public class DoctorService : IDoctorService
         }
     }
 
+    /// <summary>
+    /// Deletes a doctor by ID.
+    /// </summary>
+    /// <param name="id">The doctor ID.</param>
     public async void DeleteDoctor(Guid id)
     {
         try
@@ -133,6 +154,11 @@ public class DoctorService : IDoctorService
         }
     }
 
+    /// <summary>
+    /// Gets all doctors with sorting and filtering options.
+    /// </summary>
+    /// <param name="options">The sorting and filtering options.</param>
+    /// <returns>A paged result of doctor DTOs.</returns>
     public PagedResult<DoctorDto> GetAllDoctors(DoctorSortFilterOptions options)
     {
         var doctors = _unitOfWork.DoctorRead.GetAll().AsNoTracking();
@@ -140,6 +166,10 @@ public class DoctorService : IDoctorService
         return doctorDtos;
     }
 
+    /// <summary>
+    /// Updates an existing doctor.
+    /// </summary>
+    /// <param name="doctor">The doctor DTO.</param>
     public async Task UpdateDoctor(UpdateDoctorDto doctor)
     {
         try
@@ -150,26 +180,55 @@ public class DoctorService : IDoctorService
                 throw new ValidationException(validationResult.Errors);
             }
 
-            var existingDoctor = await _unitOfWork.DoctorRead.GetByIdAsync(doctor.Id);
-            if (existingDoctor == null)
+            // Start a transaction
+            await _unitOfWork.BeginTransactionAsync();
+
+            try
             {
-                _logger.LogWarning("Doctor with ID {DoctorId} not found.", doctor.Id);
-                throw new KeyNotFoundException($"Doctor with ID {doctor.Id} not found.");
+                var existingDoctor = await _unitOfWork.DoctorRead.GetByIdAsync(doctor.Id);
+                if (existingDoctor == null)
+                {
+                    _logger.LogWarning("Doctor with ID {DoctorId} not found.", doctor.Id);
+                    throw new KeyNotFoundException($"Doctor with ID {doctor.Id} not found.");
+                }
+
+                // Update related user information if necessary
+                var userDto = new UpdateUserDto
+                {
+                    Id = existingDoctor.UserId,
+                    FirstName = doctor.FirstName,
+                    LastName = doctor.LastName,
+                    PhoneNumber = doctor.PhoneNumber,
+                    BirthDate = doctor.BirthDate
+                };
+
+                await _userService.UpdateUser(userDto);
+
+                // Map updated properties from DTO to entity
+                _mapper.Map(doctor, existingDoctor);
+                existingDoctor.UpdatedAt = DateTime.UtcNow;
+
+                var isUpdated = _unitOfWork.DoctorWrite.Update(existingDoctor);
+
+                if (!isUpdated)
+                {
+                    _logger.LogError("Doctor update failed for {DoctorId}.", doctor.Id);
+                    await _unitOfWork.RollbackTransactionAsync();
+                    throw new Exception($"Doctor update failed for {doctor.Id}");
+                }
+
+                // Commit the transaction
+                await _unitOfWork.CommitTransactionAsync();
+
+                _logger.LogInformation("Doctor {DoctorId} updated successfully.", doctor.Id);
             }
-
-            // Map updated properties from DTO to entity
-            _mapper.Map(doctor, existingDoctor);
-            existingDoctor.UpdatedAt = DateTime.UtcNow;
-
-            var isUpdated = _unitOfWork.DoctorWrite.Update(existingDoctor);
-
-            if (!isUpdated)
+            catch (Exception ex)
             {
-                _logger.LogError("Doctor update failed for {DoctorId}.", doctor.Id);
-                throw new Exception($"Doctor update failed for {doctor.Id}");
+                // Roll back the transaction on any error
+                await _unitOfWork.RollbackTransactionAsync();
+                _logger.LogError(ex, "Transaction failed while updating doctor.");
+                throw;
             }
-
-            _logger.LogInformation("Doctor {DoctorId} updated successfully.", doctor.Id);
         }
         catch (Exception ex)
         {
