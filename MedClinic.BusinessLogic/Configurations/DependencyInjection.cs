@@ -28,6 +28,9 @@ public static class DependencyInjection
         services.AddScoped<IDoctorService, DoctorService>();
         services.AddScoped<IBedService, BedService>();
         services.AddScoped<IDoctorProfitService, DoctorProfitService>();
+        services.AddScoped<IDoctorRoomService, DoctorRoomService>();
+        services.AddScoped<IFirstViewOrderService, FirstViewOrderService>();
+        services.AddScoped<IHospitalServiceService, HospitalServiceService>();
         #endregion
 
         return services;
