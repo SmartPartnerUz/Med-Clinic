@@ -14,7 +14,7 @@
                         x:Name="B"
                         Background="#FF1000"
                         CornerRadius="25">
-                        
+
                         <Path 
                             Fill="White" Data="{DynamicResource x}"
                             Height="15"
