@@ -79,6 +79,7 @@
                             Content="Ismi :"/>
                         
                         <TextBox
+                            HorizontalAlignment="Left"
                             x:Name="txt_Firstname"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 
@@ -89,6 +90,7 @@
                             Content="Fameliyasi :"/>
                         
                         <TextBox
+                            HorizontalAlignment="Left"
                             x:Name="txt_Lastname"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 
@@ -126,6 +128,7 @@
                         
                         <TextBox
                             x:Name="txt_Salary"
+                            HorizontalAlignment="Left"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Update_TextBox_Style}"/>
                         
@@ -187,6 +190,7 @@
                         <TextBox
                             x:Name="txt_Persentage"
                             MaxLength="3"
+                            HorizontalAlignment="Left"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 

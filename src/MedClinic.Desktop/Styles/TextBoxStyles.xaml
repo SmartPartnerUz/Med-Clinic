@@ -63,22 +63,13 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="0.5"/>
                         </Grid.RowDefinitions>
-                        <TextBox
-                            x:Name="FirstName"
-                            Width="{TemplateBinding Width}"
-                            MaxLength="{TemplateBinding MaxLength}"
-                            Grid.Row="0"
-                            Margin="2 0 0 0"
-                            FontSize="16"
-                            FontWeight="SemiBold"
-                            BorderThickness="0"
-                            VerticalAlignment="Center"
-                            Text="{TemplateBinding Text}"
-                            Foreground="{DynamicResource BorderColor}"
-                            Background="Transparent">
-
-                        </TextBox>
+                        
+                        <ScrollViewer
+                            Margin="7 5 0 0"
+                            x:Name="PART_ContentHost"/>
+                        
                         <Border
+                            Width="300"
                             x:Name="bordername"
                             Grid.Row="1"
                             Background="{DynamicResource BorderColor}">
@@ -120,19 +111,13 @@
                                 <RowDefinition Height="30"/>
                                 <RowDefinition Height="0.5"/>
                             </Grid.RowDefinitions>
-                            <TextBox
-                                x:Name="FirstName"
-                                Grid.Row="0"
-                                Margin="0 0 0 3"
-                                FontWeight="SemiBold"
-                                FontSize="16" 
-                                MaxLength="9"
-                                BorderThickness="0"
-                                VerticalAlignment="Bottom"
-                                Foreground="{DynamicResource BorderColor}"
-                                Background="Transparent">
 
-                            </TextBox>
+                            <ScrollViewer 
+                                Margin="0 2 0 0"
+                                Width="150"
+                                x:Name="PART_ContentHost"
+                                Grid.Column="1"/>
+
                             <Border
                                 Width="200"
                                 x:Name="bordername"
