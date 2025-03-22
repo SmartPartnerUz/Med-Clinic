@@ -1,4 +1,5 @@
-﻿using MedClinic.Desktop.Pages.Dashboard;
+﻿using MedClinic.BusinessLogic.Services;
+using MedClinic.Desktop.Pages.Dashboard;
 using MedClinic.Desktop.Pages.Doctors;
 using MedClinic.Desktop.Pages.Patients;
 using MedClinic.Desktop.Pages.Rooms;
@@ -12,8 +13,22 @@ namespace MedClinic.Desktop;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    private readonly IDoctorService _doctorService;
+    private readonly IDoctorRoomService _doctorRoomService;
+    private readonly IRoleService _roleService;
+    private readonly IHospitalServiceService _hospitalServiceService;
+    private readonly IPositionService _positionService;
+    public MainWindow(IDoctorService doctorService,
+                      IDoctorRoomService doctorRoomService,
+                      IRoleService roleService,
+                      IHospitalServiceService hospitalServiceService,
+                      IPositionService positionService)
     {
+        _doctorService = doctorService;
+        _doctorRoomService = doctorRoomService;
+        _roleService = roleService;
+        _hospitalServiceService = hospitalServiceService;
+        _positionService = positionService;
         InitializeComponent();
     }
 
@@ -41,7 +56,11 @@ public partial class MainWindow : Window
 
     private void rbDoctors_Click(object sender, RoutedEventArgs e)
     {
-        DoctorPage doctorPage = new DoctorPage();
+        DoctorPage doctorPage = new DoctorPage(_doctorService,
+                                               _roleService,
+                                               _doctorRoomService,
+                                               _hospitalServiceService,
+                                               _positionService);
         PageNavigator.Content = doctorPage;
     }
 

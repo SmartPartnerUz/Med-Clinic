@@ -166,6 +166,13 @@ public class DoctorService : IDoctorService
         return doctorDtos;
     }
 
+    public PagedResult<DoctorDto> GetAllDoctorsWithRelations(DoctorSortFilterOptions options)
+    {
+        var doctors = _unitOfWork.DoctorRead.GetAllWithRelatedEntities();
+        var doctorDtos = doctors.Select(d => _mapper.Map<DoctorDto>(d)).AsPagedResult(options);
+        return doctorDtos;
+    }
+
     /// <summary>
     /// Updates an existing doctor.
     /// </summary>

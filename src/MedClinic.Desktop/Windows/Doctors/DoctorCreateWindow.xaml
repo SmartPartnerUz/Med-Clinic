@@ -201,12 +201,6 @@
                             Margin="5 5 5 10"
                             Width="200"
                             HorizontalAlignment="Left">
-
-                            <ComboBoxItem
-                                Content="Admin"/>
-                            <ComboBoxItem
-                                Content="Super admin"/>
-
                         </ComboBox>
 
                         <Label

@@ -3,4 +3,6 @@
 namespace MedClinic.DataAccess.Interfaces;
 
 public interface IDoctorReadRepository : IReadRepository<Doctor>
-{ }
+{
+    IQueryable<Doctor> GetAllWithRelatedEntities();
+}

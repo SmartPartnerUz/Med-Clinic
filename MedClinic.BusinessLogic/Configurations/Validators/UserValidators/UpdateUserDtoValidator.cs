@@ -3,9 +3,9 @@ using MedClinic.BusinessLogic.Services;
 
 namespace MedClinic.BusinessLogic.Configurations.Validators;
 
-public class UpdateDtoValidator : AbstractValidator<UpdateUserDto>
+public class UpdateUserDtoValidator : AbstractValidator<UpdateUserDto>
 {
-    public UpdateDtoValidator()
+    public UpdateUserDtoValidator()
     {
         RuleFor(x => x.Id)
             .NotEmpty().WithMessage("Id is required.");

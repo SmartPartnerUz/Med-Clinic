@@ -6,7 +6,7 @@ namespace MedClinic.Domain.Entities.DoctorRooms;
 [Table("doctor_room")]
 public class DoctorRoom : BaseEntity
 {
-    [Column("name")]
+    [Column("number")]
     public int Number { get; set; }
 
     public ICollection<Doctor> Doctors { get; set; } = new List<Doctor>();
