@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media.Animation;
+using static MedClinic.Desktop.Windows.Notifications.NotificationWindow;
 
 namespace MedClinic.Desktop.Windows.Notifications
 {
@@ -10,7 +11,7 @@ namespace MedClinic.Desktop.Windows.Notifications
         private const int NotificationHeight = 80; 
         private const int Margin = 10;
 
-        public static void ShowNotification(string message, int duration = 3000)
+        public static void ShowNotification(MessageType Type, string message, int duration = 3000)
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -20,7 +21,7 @@ namespace MedClinic.Desktop.Windows.Notifications
                     oldest.Close();
                 }
 
-                var notification = new NotificationWindow(message, duration);
+                var notification = new NotificationWindow(Type, message, duration);
                 PositionNotification(notification);
                 notification.Show();
 

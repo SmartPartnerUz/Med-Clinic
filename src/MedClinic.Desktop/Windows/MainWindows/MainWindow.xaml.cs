@@ -4,6 +4,7 @@ using MedClinic.Desktop.Pages.Patients;
 using MedClinic.Desktop.Pages.Rooms;
 using MedClinic.Desktop.Windows.Notifications;
 using System.Windows;
+using static MedClinic.Desktop.Windows.Notifications.NotificationWindow;
 
 namespace MedClinic.Desktop;
 
@@ -53,7 +54,7 @@ public partial class MainWindow : Window
 
     private void rbServices_Click(object sender, RoutedEventArgs e)
     {
-        NotificationManager.ShowNotification("Birinchi bildirishnoma!");
+        NotificationManager.ShowNotification(MessageType.Error, "Birinchi bildirishnoma!");
     }
 
     private void Logout_Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
