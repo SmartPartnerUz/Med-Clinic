@@ -81,6 +81,8 @@
                         <TextBox
                             HorizontalAlignment="Left"
                             x:Name="txt_Firstname"
+                            FontWeight="SemiBold"
+                            FontSize="16"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 
                         <Label
@@ -92,6 +94,8 @@
                         <TextBox
                             HorizontalAlignment="Left"
                             x:Name="txt_Lastname"
+                            FontWeight="SemiBold"
+                            FontSize="16"
                             Style="{DynamicResource Update_TextBox_Style}"/>
 
                         <Label
@@ -101,7 +105,13 @@
                             Content="Telefon raqami :"/>
                         
                         <TextBox
+                            VerticalAlignment="Bottom"
                             x:Name="txt_PhoneNuber"
+                            MaxLength="9"
+                            FontWeight="SemiBold"
+                            FontSize="16"
+                            Margin="0 5 0 0"
+                            HorizontalAlignment="Left"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Phone_Number_TextBox_Style}"/>
 
@@ -127,6 +137,9 @@
                             Content="Maoshi :"/>
                         
                         <TextBox
+                            MaxLength="10"
+                            FontWeight="SemiBold"
+                            FontSize="16"
                             x:Name="txt_Salary"
                             HorizontalAlignment="Left"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
@@ -190,6 +203,8 @@
                         <TextBox
                             x:Name="txt_Persentage"
                             MaxLength="3"
+                            FontWeight="SemiBold"
+                            FontSize="16"
                             HorizontalAlignment="Left"
                             PreviewTextInput="txt_PhoneNuber_PreviewTextInput"
                             Style="{DynamicResource Update_TextBox_Style}"/>
