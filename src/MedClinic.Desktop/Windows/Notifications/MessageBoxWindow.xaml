@@ -51,14 +51,14 @@
 
             </Border>
 
-            <Label
+            <TextBlock
                 Name="txtMessage"
                 Grid.Row="1"
                 FontSize="17"
                 FontWeight="SemiBold"
                 VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Content="Ilovadan chiqmoqchimisiz?"/>
+                TextWrapping="Wrap"
+                HorizontalAlignment="Center"/>
 
             <Grid
                 Grid.Row="2">
@@ -74,7 +74,7 @@
                     Margin="0 0 20 0"
                     FontSize="16"
                     HorizontalAlignment="Center"
-                    Style="{DynamicResource MainButton}"
+                    Style="{DynamicResource MessageWindow_Button}"
                     Content="Ha"/>
 
                 <Button
@@ -84,7 +84,7 @@
                     Margin="20 0 0 0"
                     FontSize="16"
                     HorizontalAlignment="Left"
-                    Style="{DynamicResource MainButton}"
+                    Style="{DynamicResource MessageWindow_Button}"
                     Content="Bekor qilish"/>
 
                 <Button
@@ -94,7 +94,7 @@
                     Margin="0 0 20 0"
                     FontSize="16"
                     HorizontalAlignment="Right"
-                    Style="{DynamicResource MainButton}"
+                    Style="{DynamicResource MessageWindow_Button}"
                     Content="Ha"/>
 
                 <Button
@@ -104,7 +104,7 @@
                     Margin="20 0 0 0"
                     FontSize="16"
                     HorizontalAlignment="Left"
-                    Style="{DynamicResource MainButton}"
+                    Style="{DynamicResource MessageWindow_Button}"
                     Content="Yo'q"/>
 
                 <Button
@@ -114,7 +114,7 @@
                     Margin="0 0 20 0"
                     FontSize="16"
                     HorizontalAlignment="Center"
-                    Style="{DynamicResource MainButton}"
+                    Style="{DynamicResource MessageWindow_Button}"
                     Content="Qayta urinish"/>
 
             </Grid>
