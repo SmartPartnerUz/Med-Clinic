@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MedClinic.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250319085948_Kubik")]
-    partial class Kubik
+    [Migration("20250321184428_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,7 +98,7 @@ namespace MedClinic.DataAccess.Migrations
 
                     b.Property<int>("Number")
                         .HasColumnType("integer")
-                        .HasColumnName("name");
+                        .HasColumnName("number");
 
                     b.HasKey("Id");
 

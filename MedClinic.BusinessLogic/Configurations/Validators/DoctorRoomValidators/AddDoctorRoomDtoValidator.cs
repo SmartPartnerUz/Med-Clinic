@@ -6,9 +6,9 @@ namespace MedClinic.BusinessLogic.Configurations;
 /// <summary>
 /// Validator for AddDoctorRoomDto.
 /// </summary>
-internal class AddDoctorRoomValidator : AbstractValidator<AddDoctorRoomDto>
+internal class AddDoctorRoomDtoValidator : AbstractValidator<AddDoctorRoomDto>
 {
-    public AddDoctorRoomValidator()
+    public AddDoctorRoomDtoValidator()
     {
         // Validate that the Number is greater than 0
         RuleFor(room => room.Number)

@@ -32,9 +32,6 @@ public class AddDoctorDtoValidator : AbstractValidator<AddDoctorDto>
         RuleFor(x => x.RoleId)
             .NotEmpty().WithMessage("Role ID is required.");
 
-        RuleFor(x => x.UserId)
-            .NotEmpty().WithMessage("User ID is required.");
-
         RuleFor(x => x.HospitalServiceId)
             .NotEmpty().WithMessage("Hospital service ID is required.");
 

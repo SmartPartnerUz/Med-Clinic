@@ -95,7 +95,7 @@ namespace MedClinic.DataAccess.Migrations
 
                     b.Property<int>("Number")
                         .HasColumnType("integer")
-                        .HasColumnName("name");
+                        .HasColumnName("number");
 
                     b.HasKey("Id");
 

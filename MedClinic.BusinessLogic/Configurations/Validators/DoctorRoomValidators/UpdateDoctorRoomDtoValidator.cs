@@ -6,9 +6,9 @@ namespace MedClinic.BusinessLogic.Configurations;
 /// <summary>
 /// Validator for UpdateDoctorRoomDto.
 /// </summary>
-internal class UpdateDoctorRoomValidator : AbstractValidator<UpdateDoctorRoomDto>
+internal class UpdateDoctorRoomDtoValidator : AbstractValidator<UpdateDoctorRoomDto>
 {
-    public UpdateDoctorRoomValidator()
+    public UpdateDoctorRoomDtoValidator()
     {
         // Validate that the Id is not an empty GUID
         RuleFor(room => room.Id)

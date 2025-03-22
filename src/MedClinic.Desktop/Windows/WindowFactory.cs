@@ -16,6 +16,11 @@ public static class WindowFactory
     public static MainWindow CreateMainWindow()
     {
         // If MainWindow has dependencies, resolve them here
-        return new MainWindow();
+        var doctorService = App.ServiceProvider.GetRequiredService<IDoctorService>();
+        var doctorRoomService = App.ServiceProvider.GetRequiredService<IDoctorRoomService>();
+        var roleService = App.ServiceProvider.GetRequiredService<IRoleService>();
+        var hospitalServiceService = App.ServiceProvider.GetRequiredService<IHospitalServiceService>();
+        var positionService = App.ServiceProvider.GetRequiredService<IPositionService>();
+        return new MainWindow(doctorService, doctorRoomService, roleService, hospitalServiceService, positionService);
     }
 }
