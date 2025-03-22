@@ -113,8 +113,9 @@
                             </Grid.RowDefinitions>
 
                             <ScrollViewer 
-                                Margin="0 2 0 0"
+                                Margin="0 7 0 0"
                                 Width="150"
+                                HorizontalAlignment="Left"
                                 x:Name="PART_ContentHost"
                                 Grid.Column="1"/>
 
